@@ -10,19 +10,18 @@ namespace UltimateNiconicoCommentViewer.src.common.util
 {
     public class XmlParse
     {
- 
-        public static string[][] ParseMylistXml(string response)
-        {
-            var ids = Regex.Matches(response,@$"(?<=id>).*(?=</id)");
-            var names = Regex.Matches(response, @$"(?<=name>).*(?=</name)");
-            string[][] result = new string[ids.Count][];
-           
-            for(int i=0; i<ids.Count; i++)
-            {
-                result[i] = new string[] { ids[i].ToString(), names[i].ToString() };
-            }
         
-            return result;
+        /// <summary>
+        /// マイリストID
+        /// マイリスト名を取得します
+        /// </summary>
+        /// <param name="response"></param>
+        /// <returns></returns>
+        public static string[] ParseMylistXml(string response)
+        {
+            var id   = parseXml(response, "id");
+            var name = parseXml(response, "name");
+            return new string[] { id, name };
             
         }
 

@@ -57,6 +57,11 @@ namespace UltimateNiconicoCommentViewer.src.common
         /// コメントサーバから接続が終了した際のメッセージです
         /// </summary>
         public const string FINISH_CONNECT_SERVER = "接続が終了しました";
+
+
+        public const string DOESNOT_EXISTS_MYLIST = "マイリストが存在しません";
+
+        public const string CAN_NOT_FOUNT_MYLIST = "マイリストを取得できません";
     }
 
 

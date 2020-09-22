@@ -14,6 +14,6 @@ namespace UltimateNiconicoCommentViewer.src.common.stringList
 @"ログインができていないか
 有効なパスではない可能性があります。
 ";
-
+        
     }
 }

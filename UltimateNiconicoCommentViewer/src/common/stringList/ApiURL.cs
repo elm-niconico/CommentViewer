@@ -41,7 +41,7 @@ namespace UltimateNiconicoCommentViewer.src.common.stringList
         /// </summary>
         /// <param name="userId"></param>
         /// <returns></returns>
-        public static string GET_USER_MYLIST(int userId) => $@"http://api.ce.nicovideo.jp/nicoapi/v1/mylistgroup.get?detail=0&user_id=${userId}";
+        public static string GET_USER_MYLIST(string userId) => $@"http://api.ce.nicovideo.jp/nicoapi/v1/mylistgroup.get?detail=0&user_id=${userId}";
 
 
         /// <summary>
@@ -51,6 +51,14 @@ namespace UltimateNiconicoCommentViewer.src.common.stringList
         /// <param name="mylistId"></param>
         /// <returns></returns>
         public static string GO_TO_MYLIST_LINK(int userId, int mylistId) => $@"https://www.nicovideo.jp/user/{userId}/mylist/{mylistId}";
+
+
+        /// <summary>
+        /// マイリストの詳細情報を取得するためのURL
+        /// </summary>
+        /// <param name="mylistId"></param>
+        /// <returns></returns>
+        public static string GET_DETAIL_MYLIST_DATA(string mylistId) => $@"http://www.nicovideo.jp/api/mylist/list?group_id={mylistId}";
     }
 
 }

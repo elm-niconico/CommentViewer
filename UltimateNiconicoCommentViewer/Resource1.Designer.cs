@@ -63,6 +63,16 @@ namespace UltimateNiconicoCommentViewer {
         /// <summary>
         ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
         /// </summary>
+        internal static System.Drawing.Bitmap mylistIcon {
+            get {
+                object obj = ResourceManager.GetObject("mylistIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+        /// </summary>
         internal static System.Drawing.Bitmap user_default_icon {
             get {
                 object obj = ResourceManager.GetObject("user_default_icon", resourceCulture);

@@ -14,6 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Resources\mylistIcon.png" />
     <None Remove="Resources\user_default_icon.bmp" />
     <None Remove="Resources\user_default_icon.jpg" />
   </ItemGroup>
@@ -36,6 +37,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Resources\mylistIcon.png" />
     <Resource Include="Resources\user_default_icon.jpg" />
   </ItemGroup>
 

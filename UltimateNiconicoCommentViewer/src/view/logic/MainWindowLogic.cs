@@ -16,6 +16,7 @@ using UltimateNiconicoCommentViewer.src.common.util;
 using UltimateNiconicoCommentViewer.src.model.httpClient;
 using UltimateNiconicoCommentViewer.src.view.dialog;
 using UltimateNiconicoCommentViewer.src.view.logic;
+using static UltimateNiconicoCommentViewer.src.viewModel.dialog.UserProfileModel;
 
 namespace UltimateNiconicoCommentViewer.src.viewModel
 {
@@ -53,8 +54,7 @@ namespace UltimateNiconicoCommentViewer.src.viewModel
                     _userProfileWindow.Close();
                 }
 
-                var logic = UserProfileLogic.INSTANCE;
-                var model = await logic.NewUserProfileModel(selectItem);
+                var model = await new UserProfileBuilder().Build(selectItem);
 
                 _userProfileWindow = new UserProfile(model)
                 {
