@@ -74,7 +74,7 @@ namespace UltimateNiconicoCommentViewer.src.viewModel
                 try
                 {
                     Process.Start(liveIdUrl);
-                }catch(Win32Exception ex)
+                }catch(Win32Exception)
                 {
                     //TODO 例外処理
                 }
@@ -131,28 +131,5 @@ namespace UltimateNiconicoCommentViewer.src.viewModel
         }
 
 
-        public static void ReadCookieValueFromSettings(this MainWindowLogic me)
-        {
-            var path = UserSetting.Default.cookieValue;
-            if(path.NotNull() && path.NotEmpty())
-            {
-                var con = new SqlConnectionCookie();
-                if (con.ReadCookie(UserSetting.Default.userCookiePath))
-                {
-                    
-                    var uri = new Uri(NicoString.NICO_URL);
-                    var cookie = new Cookie(NicoString.USER_SESSION,path,NicoString.SLASH,NicoString.NICO_NAME);
-                    var handler = HttpClientHolder.GetHandler();
-                    handler.CookieContainer.Add(uri, cookie);
-                    
-                    HttpClientHolder.client = HttpClientHolder.NewHttpClient(handler);
-                  
-                }
-                else
-                {
-                    //TODO Cookieファイルからログインできていなかったばあいの処理
-                }
-            }
-        }
     }
 }

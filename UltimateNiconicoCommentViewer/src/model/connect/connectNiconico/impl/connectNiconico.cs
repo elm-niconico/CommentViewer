@@ -19,7 +19,6 @@ namespace UltimateNiconicoCommentViewer.src.model.getCommentLogic.impl
     public class ConnectNicoNico : IConnectNicoNico
 
     {
-        private  UrlCreate _urlCreate { get;  set; }
 
         private  LoginLogic _loginLogic { get; set;}
 
@@ -31,9 +30,8 @@ namespace UltimateNiconicoCommentViewer.src.model.getCommentLogic.impl
 
 
         
-        public ConnectNicoNico(UrlCreate urlCreate, LoginLogic login, ConnectionLogic connection)
+        public ConnectNicoNico(LoginLogic login, ConnectionLogic connection)
         {
-            _urlCreate =  urlCreate;
             _loginLogic = login;
             _connectionLogic = connection;
         }
@@ -55,7 +53,7 @@ namespace UltimateNiconicoCommentViewer.src.model.getCommentLogic.impl
             string thread = XmlParse.parseXml(responseMessage, XmlKeys.THREAD);
             if(addr.NotEmpty() && port.NotEmpty() && thread.NotEmpty())
             {
-                await foreach (var response in _connectionLogic.connectLive(thread, addr, port))
+                await foreach (var response in _connectionLogic.ConnectLive(thread, addr, port))
                 {
                     yield return response;
                 }
@@ -94,13 +92,13 @@ namespace UltimateNiconicoCommentViewer.src.model.getCommentLogic.impl
 
         public async Task<bool> getUserIcon(int userId)
         { 
-            return await _connectionLogic.getUserIcon(userId);
+            return await _connectionLogic.GetUserIcon(userId);
         }
 
 
         public async Task<string> getUserName(int userId)
         {
-            var response = await _connectionLogic.getUserName(userId);
+            var response = await _connectionLogic.GetUserName(userId);
             var xmlStr =  await response.Content.ReadAsStringAsync();
             return XmlParse.parseXml(xmlStr, "nickname");
         }

@@ -14,19 +14,11 @@ namespace UltimateNiconicoCommentViewer.src.model.connectLogic
 
         private static  HttpClient _client;
 
-        private static readonly LoginLogic singleTon = new LoginLogic();
-
         /// <summary>
         /// インスタンス生成禁止
         /// </summary>
-        private LoginLogic() {
-            _client = HttpClientHolder.GetStaticClient();
-        }
-
-
-        static LoginLogic()
-        {
-           
+        public LoginLogic(HttpClient client) {
+            _client = client;
         }
 
         /// <summary>
@@ -66,11 +58,5 @@ namespace UltimateNiconicoCommentViewer.src.model.connectLogic
             return response;
         }
 
-
-        /// <summary>
-        /// LoginLogicのインスタンスを返します。
-        /// </summary>
-        /// <returns></returns>
-        public static LoginLogic GetInstance() => singleTon;
     }
 }

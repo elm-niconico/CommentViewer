@@ -48,7 +48,7 @@ namespace UltimateNiconicoCommentViewer.src.model.connectLogic
             try
             {
                bitMapImage =  new BitmapImage(new Uri(samuneUrl));
-            }catch(Exception ex)
+            }catch(Exception)
             {
 
 

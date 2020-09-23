@@ -18,9 +18,7 @@ namespace UltimateNiconicoCommentViewer.src.view.logic
 {
     public enum UserProfileLogic
     {
-        INSTANCE,
-        
-        
+        INSTANCE,     
     }
     public static class Extends {
     
@@ -33,18 +31,10 @@ namespace UltimateNiconicoCommentViewer.src.view.logic
         public static void GoToUserProfile(this UserProfileLogic me, string userId)
         {
             if (userId.IsNotNumber()) return;
-            var psi = new ProcessStartInfo()
-            {
-                FileName = ApiURL.GO_TO_USER_PROFILE(int.Parse(userId)),
-                UseShellExecute = true,
-            };
-            try
-            {
-                Process.Start(psi);
-            }catch(Win32Exception ex)
-            {
-                System.Windows.MessageBox.Show(ex.Message);
-            }
+            ProcessSupport.GoToWebBrowser(ApiURL.GO_TO_USER_PROFILE(int.Parse(userId)), 
+                                          Message.FAIL_GO_TO_USER_PROFILE);
+
+           
            
         }
 
@@ -58,19 +48,7 @@ namespace UltimateNiconicoCommentViewer.src.view.logic
         public static void GoToMylist(this UserProfileLogic me, string userId, string mylistId )
         {
             var url = ApiURL.GO_TO_MYLIST_LINK(userId, mylistId);
-            var psi = new ProcessStartInfo()
-            {
-                FileName = url,
-                UseShellExecute = true,
-            };
-            try
-            {
-                Process.Start(psi);
-            }catch(Win32Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            
+            ProcessSupport.GoToWebBrowser(url, Message.FAIL_GO_TO_MYLIST);           
         }
 
         /// <summary>
@@ -78,7 +56,7 @@ namespace UltimateNiconicoCommentViewer.src.view.logic
         /// </summary>
         public static void GoToVideo_MouseDown(this UserProfileLogic me, string uri)
         {
-            GetInfo(ApiURL.GO_TO_VIDEO_PAGE(uri));
+            ProcessSupport.GoToWebBrowser(ApiURL.GO_TO_VIDEO_PAGE(uri), Message.FAIL_GO_TO_USER_VIDEO);
 
         }
 
@@ -89,31 +67,7 @@ namespace UltimateNiconicoCommentViewer.src.view.logic
         /// <param name="uri"></param>
         public static void GoToLatestViedeo_MouseDown(this UserProfileLogic me, string uri)
         {
-            GetInfo(uri);
+            ProcessSupport.GoToWebBrowser(uri, Message.FAIL_GO_TO_USER_VIDEO);
         }
-
-        private static  void GetInfo(string uri)
-        {
-            var psi = new ProcessStartInfo()
-            {
-                FileName = uri,
-                UseShellExecute = true
-            };
-
-            try
-            {
-                Process.Start(psi);
-            }catch(Win32Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-     
-
-
-       
-       
-
     }
 }

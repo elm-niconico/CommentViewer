@@ -150,10 +150,11 @@
                 Orientation="Vertical"
                 >
                 <StackPanel
-                Orientation="Horizontal"
-                VerticalAlignment="Top"
-                HorizontalAlignment="Left"
-                >
+                    Orientation="Horizontal"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Left"
+                    Margin="10,0,0,0"
+                    >
                     <Image
                     Source="/Resources/mylistIcon.png"
                     Width="20"    
@@ -181,13 +182,7 @@
                         MouseDown="GoToVideoPage_MouseDown"
                         Cursor="Hand"
                         />
-                    <!-- 動画タイトル -->
-                    <TextBlock
-                        FontSize="15"
-                        FontWeight="DemiBold"
-                        Text="{Binding mylistVideoTitle}"
-                        Cursor="Hand"
-                        />
+                
                 </StackPanel>
 
             </StackPanel>
@@ -208,10 +203,11 @@
                 Orientation="Vertical"
                 >
                 <StackPanel
-                Orientation="Horizontal"
-                VerticalAlignment="Top"
-                HorizontalAlignment="Left"
-                >
+                    Margin="10,0,0,0"
+                    Orientation="Horizontal"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Left"
+                    >
                     <Image
                     Source="/Resources/videoIcon.png"
                     Width="20"    

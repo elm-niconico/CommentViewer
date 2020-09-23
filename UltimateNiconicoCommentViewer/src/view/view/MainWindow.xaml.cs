@@ -25,10 +25,10 @@ using UltimateNiconicoCommentViewer.src.common.stringList;
 using UltimateNiconicoCommentViewer.src.common.util;
 using UltimateNiconicoCommentViewer.src.model.connectLogic;
 using UltimateNiconicoCommentViewer.src.model.getCommentLogic.impl;
+using UltimateNiconicoCommentViewer.src.model.httpClient;
 using UltimateNiconicoCommentViewer.src.model.urlCreate;
 using UltimateNiconicoCommentViewer.src.view.dialog;
 using UltimateNiconicoCommentViewer.src.viewModel;
-using Xceed.Wpf.Toolkit.Core.Utilities;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace UltimateNiconicoCommentViewer
@@ -49,12 +49,9 @@ namespace UltimateNiconicoCommentViewer
         {
             _windowLogic = MainWindowLogic.INSTANCE;
 
-            _windowLogic.ReadCookieValueFromSettings();
+            _responseNiconico = new ResponseNiconico(new ConnectNicoNico(new LoginLogic(HttpClientBuilder.NewHttpClient()),
+                                                                         new ConnectionLogic(HttpClientBuilder.NewHttpClient())));
 
-            _responseNiconico = new ResponseNiconico(new ConnectNicoNico(UrlCreate.GetInstance(),
-                                                                     LoginLogic.GetInstance(),
-                                                                     new ConnectionLogic()));
-           
             InitializeComponent();
             
             
@@ -69,7 +66,6 @@ namespace UltimateNiconicoCommentViewer
         private async void Connect_NicoNico_Click(object sender, RoutedEventArgs e)
         {
             commentList.Items.Clear();
-            //TODO 削除予定
 
             var liveId = liveIdText.Text;
             await Task.Run(async () =>
@@ -135,6 +131,16 @@ namespace UltimateNiconicoCommentViewer
             await _windowLogic.ShowUserProfile(selectItem,this);
          
             
+        }
+
+        /// <summary>
+        /// ドラッグされたコメントから最初に見つかったURLを取得し、遷移します。
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void UrlComment_Drop(object sender, DragEventArgs e)
+        {
+
         }
         
         /// <summary>

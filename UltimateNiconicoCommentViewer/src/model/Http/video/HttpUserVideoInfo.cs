@@ -30,7 +30,7 @@ namespace UltimateNiconicoCommentViewer.src.model.Http.video
             try
             {
                 bitmapImage = new BitmapImage(new Uri(url));
-            }catch(Exception ex)
+            }catch(Exception)
             {
                
             }

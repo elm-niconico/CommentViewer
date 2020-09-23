@@ -48,7 +48,7 @@ namespace UltimateNiconicoCommentViewer.src.viewModel
                             string localPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
                             string encKey = File.ReadAllText($@"{localPath}\Google\Chrome\User Data\Local State");
                             encKey = JObject.Parse(encKey)["os_crypt"]["encrypted_key"].ToString();
-                            var decodedKey = System.Security.Cryptography.ProtectedData.Unprotect(Convert.FromBase64String(encKey).Skip(5).ToArray(), null, System.Security.Cryptography.DataProtectionScope.LocalMachine);
+                            var decodedKey = ProtectedData.Unprotect(Convert.FromBase64String(encKey).Skip(5).ToArray(), null, System.Security.Cryptography.DataProtectionScope.LocalMachine);
                             var cookieValue = _decryptWithKey(result, decodedKey, 3);
 
                             UserSetting.Default.userCookiePath = filePath;

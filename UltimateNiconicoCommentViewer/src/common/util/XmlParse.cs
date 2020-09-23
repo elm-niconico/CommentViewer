@@ -62,7 +62,7 @@ namespace UltimateNiconicoCommentViewer.src.common.util
         /// <returns></returns>
         public static string parseCommentXml(string response, string key)
         {
-            return Regex.Match(response, @$"(?<={key}.+>)[^</{key}]*(?=</{key})").ToString();
+            return Regex.Match(response, @$"(?<={key}.+>).*(?=</{key})").ToString();
         }
 
         /// <summary>

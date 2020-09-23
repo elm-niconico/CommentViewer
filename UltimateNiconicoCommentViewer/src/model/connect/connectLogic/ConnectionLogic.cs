@@ -22,16 +22,15 @@ namespace UltimateNiconicoCommentViewer.src.model.connectLogic
 
         private NetworkStream _stream;
 
-        public ConnectionLogic() 
+        public ConnectionLogic(HttpClient client) 
         {
-            _client = HttpClientHolder.GetStaticClient();
-
+            _client = client;
         }
 
 
 
 
-        public async IAsyncEnumerable<string> connectLive(string threadId, string host, string port)
+        public async IAsyncEnumerable<string> ConnectLive(string threadId, string host, string port)
         {
             using (var tcp = new TcpClient())
             {
@@ -66,10 +65,10 @@ namespace UltimateNiconicoCommentViewer.src.model.connectLogic
       
 
 
-        public async Task<HttpResponseMessage> getUserName(int userId) => await _client.GetAsync(ApiURL.GET_USER_NAME(userId));
+        public async Task<HttpResponseMessage> GetUserName(int userId) => await _client.GetAsync(ApiURL.GET_USER_NAME(userId));
 
 
-        public async Task<bool> getUserIcon(int userId)
+        public async Task<bool> GetUserIcon(int userId)
         {
             var response = await _client.GetAsync(ApiURL.USER_ICON_URL(userId));
             return response.IsSuccessStatusCode;
