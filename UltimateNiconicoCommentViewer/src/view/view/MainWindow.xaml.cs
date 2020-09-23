@@ -94,12 +94,7 @@ namespace UltimateNiconicoCommentViewer
                     });
                 }
             });
-
-          
-
         }
-
-
 
 
         /// <summary>
@@ -135,7 +130,7 @@ namespace UltimateNiconicoCommentViewer
         /// <param name="e"></param>
         private async void Comment_Drop(object sender, DragEventArgs e)
         {
-            var selectItem = (Object[])e.Data.GetData(typeof(Object[]));
+            var selectItem =  (Object[])e.Data.GetData(typeof(Object[]));
 
             await _windowLogic.ShowUserProfile(selectItem,this);
          

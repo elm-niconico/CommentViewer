@@ -14,6 +14,10 @@ namespace UltimateNiconicoCommentViewer.src.common.stringList
 @"ログインができていないか
 有効なパスではない可能性があります。
 ";
-        
+        public const string FAIL_GET_SAMUNE = "サムネイル画像を取得できませんでした";
+     
+     
+
+
     }
 }

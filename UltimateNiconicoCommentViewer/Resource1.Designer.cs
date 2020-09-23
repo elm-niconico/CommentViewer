@@ -79,5 +79,15 @@ namespace UltimateNiconicoCommentViewer {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+        /// </summary>
+        internal static System.Drawing.Bitmap videoIcon {
+            get {
+                object obj = ResourceManager.GetObject("videoIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

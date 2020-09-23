@@ -99,7 +99,6 @@ C:\Users\elm\Desktop\MyApp\C#\UltimateNiconicoCommentViewer\UltimateNiconicoComm
 C:\Users\elm\Desktop\MyApp\C#\UltimateNiconicoCommentViewer\UltimateNiconicoCommentViewer\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\netstandard2.1\SQLite.Interop.dll
 C:\Users\elm\Desktop\MyApp\C#\UltimateNiconicoCommentViewer\UltimateNiconicoCommentViewer\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\netstandard2.0\SQLite.Interop.dll
 C:\Users\elm\Desktop\MyApp\C#\UltimateNiconicoCommentViewer\UltimateNiconicoCommentViewer\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\netstandard2.1\SQLite.Interop.dll
-C:\Users\elm\Desktop\MyApp\C#\UltimateNiconicoCommentViewer\UltimateNiconicoCommentViewer\obj\Debug\netcoreapp3.1\UltimateNiconicoCommentViewer.csprojAssemblyReference.cache
 C:\Users\elm\Desktop\MyApp\C#\UltimateNiconicoCommentViewer\UltimateNiconicoCommentViewer\obj\Debug\netcoreapp3.1\src\view\dialog\userProfile.g.cs
 C:\Users\elm\Desktop\MyApp\C#\UltimateNiconicoCommentViewer\UltimateNiconicoCommentViewer\obj\Debug\netcoreapp3.1\src\view\view\MainWindow.g.cs
 C:\Users\elm\Desktop\MyApp\C#\UltimateNiconicoCommentViewer\UltimateNiconicoCommentViewer\obj\Debug\netcoreapp3.1\src\view\view\SelectCookieWindow.g.cs

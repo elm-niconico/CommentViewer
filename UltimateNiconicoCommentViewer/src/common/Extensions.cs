@@ -4,7 +4,7 @@ using System.Text;
 
 namespace UltimateNiconicoCommentViewer.src.common
 {
-    static class Extensions
+    public static class Extensions
     {
         public static bool NotEmpty(this string str) => !str.Equals(string.Empty);
 

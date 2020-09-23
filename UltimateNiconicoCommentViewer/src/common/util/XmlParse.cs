@@ -33,7 +33,24 @@ namespace UltimateNiconicoCommentViewer.src.common.util
         /// <returns></returns>
         public static string parseXml(string response,string key)
         {
-            return Regex.Match(response, @$"(?<={key}>).*(?=</{key})").ToString();
+            return Regex.Match(response, @$"(?<={key}>)[^<]*(?=</{key})").ToString();
+        }
+
+        /// <summary>
+        /// 投稿動画のサムネイル画像を取得します。
+        /// </summary>
+        /// <param name="response"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public static string ParseXmlToImageURL(string response)
+        {
+            return Regex.Match(response, "(?<=src=\")[^\"]+").ToString();
+        }
+
+
+        public static MatchCollection ParseXmlMatches(string response, string key)
+        {
+            return Regex.Matches(response, @$"(?<={key}>)[^<]*(?=</{key})");
         }
 
 
@@ -58,5 +75,20 @@ namespace UltimateNiconicoCommentViewer.src.common.util
         {
             return Regex.Match(response, $"(?<=user_id=\")[^\"]+(?=\")").ToString();
         }
+
+        /// <summary>
+        /// 投稿動画のURLを取得します
+        /// </summary>
+        /// <param name="response"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public static string ParseUserVideoUrl(string response, string key)
+        {
+            var match = Regex.Match(response, "(?<=<media : thumbnail url=\")[^\"]+").ToString();
+            return Regex.Unescape(match);
+        }
+
+
+
     }
 }

@@ -17,10 +17,10 @@
     <None Remove="Resources\mylistIcon.png" />
     <None Remove="Resources\user_default_icon.bmp" />
     <None Remove="Resources\user_default_icon.jpg" />
+    <None Remove="Resources\videoIcon.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="src\model\connectLive\" />
     <Folder Include="src\view\logic\新しいフォルダー\" />
   </ItemGroup>
 
@@ -39,6 +39,7 @@
   <ItemGroup>
     <Resource Include="Resources\mylistIcon.png" />
     <Resource Include="Resources\user_default_icon.jpg" />
+    <Resource Include="Resources\videoIcon.png" />
   </ItemGroup>
 
   <ItemGroup>

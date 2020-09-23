@@ -1,27 +1,50 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using System.Windows.Media.Imaging;
 using UltimateNiconicoCommentViewer.src.common;
 using UltimateNiconicoCommentViewer.src.common.stringList;
 using UltimateNiconicoCommentViewer.src.common.util;
+using UltimateNiconicoCommentViewer.src.model.connectLogic;
+using UltimateNiconicoCommentViewer.src.model.Http.video;
 using UltimateNiconicoCommentViewer.src.model.httpClient;
+using static UltimateNiconicoCommentViewer.src.model.connectLogic.HttpMylistInfo;
+using static UltimateNiconicoCommentViewer.src.model.Http.video.HttpUserVideoInfo;
 
 namespace UltimateNiconicoCommentViewer.src.viewModel.dialog
 {
     public class UserProfileModel
     {
+        //ユーザーアイコン
         public BitmapImage userIcon { get; set; }
+        //ユーザーネーム
         public string userName { get; set; }
+        //コメント
         public string comment { get; set; }
+        //ユーザーID
         public string userId { get; set; }
-        public string mylistId { get; set; }
-        public string mylistName { get; set; }
+        //ユーザーが生IDでコメントしているか
         public bool isNamaId { get; set; }
 
-        public string mylistVideoTitle { get; set; }
+        //マイリストID
+        public string mylistId { get; set; }
+        //マイリストのタイトル
+        public string mylistName { get; set; }
+        //マイリストの動画のタイトル
+        public string mylistVideoUrl { get; set; }
+        //マイリストの動画の名前
         public BitmapImage mylistSamune { get; set; }
+
+        //最新の投稿動画のURL
+        public string videoURL { get; set; }
+        //最新の投稿動画のタイトル
+        public string videoTitle { get; set; }
+        //最新の投稿動画のサムネ
+        public BitmapImage videoSamune { get; set; }
+
 
 
         private UserProfileModel() { }
@@ -47,7 +70,8 @@ namespace UltimateNiconicoCommentViewer.src.viewModel.dialog
                 userName = selectItem[1] as string;
                 var mylistInfo = await GetMylistId(userId);
                 mylistId = mylistInfo[0];
-                SetMylistName_Samune_VideoTitle(mylistInfo[1]);
+                await SetMylistName_Samune_VideoTitle(mylistInfo[1]);
+
             }
             else
             {
@@ -67,18 +91,32 @@ namespace UltimateNiconicoCommentViewer.src.viewModel.dialog
             return mylistInfo;
         }
 
-        private void SetMylistName_Samune_VideoTitle(string name)
+        /// <summary>
+        /// マイリスト欄の情報をセットします
+        /// </summary>
+        /// <param name="name"> マイリストのタイトル </param>
+        /// <returns></returns>
+        private async Task SetMylistName_Samune_VideoTitle(string name)
         {
+           
             if (name.NotEmpty())
             {
                 mylistName = name;
-                mylistVideoTitle = "";
+                var httpMylist = await new HttpMylistInfoBuilder().Build(mylistId, new HttpClient());
+                mylistSamune = httpMylist.GetMylistVideoSamune();
+                mylistVideoUrl = httpMylist.GetMylistVideoUri();
+                var httpUserVideo = await new HttpUserVideoInfoBuilder().Build(userId, new HttpClient());
+                videoSamune = httpUserVideo.GetVideoSamune();
+                videoTitle = httpUserVideo.GetVideoTitle();
+                videoURL = httpUserVideo.GetVideoURL();
             }
             else
             {
                 mylistName = NicoString.DOESNOT_EXISTS_MYLIST;
             }
         }
+
+       
 
 
 

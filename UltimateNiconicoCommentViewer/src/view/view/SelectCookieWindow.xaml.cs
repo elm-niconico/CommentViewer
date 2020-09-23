@@ -10,7 +10,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using UltimateNiconicoCommentViewer.src.view.logic;
-using UltimateNiconicoCommentViewer.src.view.model.dialog;
 
 namespace UltimateNiconicoCommentViewer.src.view.dialog
 {

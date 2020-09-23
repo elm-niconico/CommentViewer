@@ -1,8 +1,8 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "C:\\Users\\merut\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\merut\\.nuget\\packages"
+      "C:\\Users\\elm\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\elm\\.nuget\\packages"
     ]
   }
 }
