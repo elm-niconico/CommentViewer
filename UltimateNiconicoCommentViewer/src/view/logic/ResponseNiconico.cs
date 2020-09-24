@@ -1,28 +1,22 @@
-﻿using MahApps.Metro.Controls;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Controls;
-using System.Windows.Media.Imaging;
 using UltimateNiconicoCommentViewer.src.common;
 using UltimateNiconicoCommentViewer.src.common.stringList;
 using UltimateNiconicoCommentViewer.src.common.util;
 using UltimateNiconicoCommentViewer.src.model.getCommentLogic.impl;
-using UltimateNiconicoCommentViewer.src.model.urlCreate;
 
 
 namespace UltimateNiconicoCommentViewer.src.viewModel
 {
 
-    
+
 
     public class ResponseNiconico
     {
         private ConnectNicoNico _connect;
 
-     
+
         public ResponseNiconico(ConnectNicoNico connect)
         {
             _connect = connect;
@@ -32,18 +26,18 @@ namespace UltimateNiconicoCommentViewer.src.viewModel
         public async IAsyncEnumerable<object[]> getResponseMessage(string liveId)
         {
             await _connect.SetLiveStatus(liveId);
-            await foreach(var response in _connect.ConnectLive())
+            await foreach (var response in _connect.ConnectLive())
             {
-                var comment = XmlParse.parseCommentXml(response,"chat");
+                var comment = XmlParse.parseCommentXml(response, "chat");
                 var userId = XmlParse.parseUserIdXml(response);
                 var userName = userId;
                 int id;
-                bool isNot184 = int.TryParse(userId,out id);
-                var userIcon = new Uri(@"/Resources/user_default_icon.jpg",UriKind.Relative);
+                bool isNot184 = int.TryParse(userId, out id);
+                var userIcon = new Uri(@"/Resources/user_default_icon.jpg", UriKind.Relative);
                 if (isNot184)
                 {
                     userName = await _connect.getUserName(id);
-                    if(await _connect.getUserIcon(id))
+                    if (await _connect.getUserIcon(id))
                     {
                         userIcon = new Uri(ApiURL.USER_ICON_URL(id));
 
@@ -52,16 +46,16 @@ namespace UltimateNiconicoCommentViewer.src.viewModel
                 }
 
 
-                if(comment.NotEmpty()&&userId.NotEmpty())
-                    yield return new object[] { userIcon, userName, comment,userId};
+                if (comment.NotEmpty() && userId.NotEmpty())
+                    yield return new object[] { userIcon, userName, comment, userId };
 
             }
-           
+
 
         }
 
 
-        
+
         /// <summary>
         /// ログインを試みます
         /// True  -> 成功
@@ -77,11 +71,11 @@ namespace UltimateNiconicoCommentViewer.src.viewModel
         }
 
 
-      
 
 
 
-      
+
+
 
 
 

@@ -1,27 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Diagnostics;
-using System.IO.Enumeration;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Media.Imaging;
-using UltimateNiconicoCommentViewer.src.common;
+﻿using UltimateNiconicoCommentViewer.src.common;
 using UltimateNiconicoCommentViewer.src.common.stringList;
 using UltimateNiconicoCommentViewer.src.common.util;
-using UltimateNiconicoCommentViewer.src.model.httpClient;
-using UltimateNiconicoCommentViewer.src.viewModel.dialog;
 
 namespace UltimateNiconicoCommentViewer.src.view.logic
 {
     public enum UserProfileLogic
     {
-        INSTANCE,     
+        INSTANCE,
     }
-    public static class Extends {
-    
+    public static class Extends
+    {
+
         /// <summary>
         /// ユーザーのプロフィールページに遷移します
         /// 184の場合は処理を中断します。
@@ -31,11 +20,11 @@ namespace UltimateNiconicoCommentViewer.src.view.logic
         public static void GoToUserProfile(this UserProfileLogic me, string userId)
         {
             if (userId.IsNotNumber()) return;
-            ProcessSupport.GoToWebBrowser(ApiURL.GO_TO_USER_PROFILE(int.Parse(userId)), 
+            ProcessSupport.GoToWebBrowser(ApiURL.GO_TO_USER_PROFILE(int.Parse(userId)),
                                           Message.FAIL_GO_TO_USER_PROFILE);
 
-           
-           
+
+
         }
 
 
@@ -45,10 +34,10 @@ namespace UltimateNiconicoCommentViewer.src.view.logic
         /// <param name="me"></param>
         /// <param name="mylistId"></param>
         /// <param name="userId"></param>
-        public static void GoToMylist(this UserProfileLogic me, string userId, string mylistId )
+        public static void GoToMylist(this UserProfileLogic me, string userId, string mylistId)
         {
             var url = ApiURL.GO_TO_MYLIST_LINK(userId, mylistId);
-            ProcessSupport.GoToWebBrowser(url, Message.FAIL_GO_TO_MYLIST);           
+            ProcessSupport.GoToWebBrowser(url, Message.FAIL_GO_TO_MYLIST);
         }
 
         /// <summary>

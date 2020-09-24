@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 
 namespace UltimateNiconicoCommentViewer.src.common.util
 {
@@ -9,7 +6,7 @@ namespace UltimateNiconicoCommentViewer.src.common.util
     {
         //放送IDを取得する正規表現
         private static readonly Regex _regex = new Regex("lv[0-9]+");
-        
+
         /// <summary>
         /// 放送URLからLIVEIDを取得します。
         /// </summary>

@@ -1,10 +1,6 @@
 ﻿using Microsoft.Win32;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows;
-using System.Windows.Automation;
-using System.Windows.Controls;
 using UltimateNiconicoCommentViewer.src.common;
 using UltimateNiconicoCommentViewer.src.common.stringList;
 using UltimateNiconicoCommentViewer.src.viewModel;
@@ -15,7 +11,8 @@ namespace UltimateNiconicoCommentViewer.src.view.logic
     {
         INSTANCE,
 
-    }public static class SelectExtends
+    }
+    public static class SelectExtends
     {
 
 
@@ -28,7 +25,7 @@ namespace UltimateNiconicoCommentViewer.src.view.logic
         {
             var ofd = new OpenFileDialog();
             ofd.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-            return ofd.ShowDialog()==true? ofd.FileName : "";
+            return ofd.ShowDialog() == true ? ofd.FileName : "";
 
         }
 
@@ -47,9 +44,9 @@ namespace UltimateNiconicoCommentViewer.src.view.logic
             }
             var con = new SqlConnectionCookie();
             var result = con.ReadCookie(path);
-            var message =  result? Message.LOGIN_OK : Message.LOGIN_FALSE;
+            var message = result ? Message.LOGIN_OK : Message.LOGIN_FALSE;
             MessageBox.Show(message);
-          
+
             if (result) SaveSettingsCookiePath(path);
         }
 

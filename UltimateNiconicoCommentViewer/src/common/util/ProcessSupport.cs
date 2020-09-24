@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Text;
 using System.Windows;
-using UltimateNiconicoCommentViewer.src.common.stringList;
 
 namespace UltimateNiconicoCommentViewer.src.common.util
 {
@@ -16,7 +13,7 @@ namespace UltimateNiconicoCommentViewer.src.common.util
         /// <param name="fileName"> 遷移先ののURL </param>
         /// <param name="badMessage"> 失敗した場合のメッセージ </param>
         /// <returns></returns>
-        public static bool GoToWebBrowser(string fileName,string badMessage)
+        public static bool GoToWebBrowser(string fileName, string badMessage)
         {
             var psi = new ProcessStartInfo()
             {
@@ -27,7 +24,8 @@ namespace UltimateNiconicoCommentViewer.src.common.util
             try
             {
                 Process.Start(psi);
-            }catch(Exception)
+            }
+            catch (Exception)
             {
                 MessageBox.Show(badMessage);
                 return false;

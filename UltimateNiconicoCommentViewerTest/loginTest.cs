@@ -1,9 +1,6 @@
-using MaterialDesignThemes.Wpf;
 using NUnit.Framework;
 using System;
-using System.Collections.Generic;
 using System.Net.Http;
-using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using System.Windows.Media.Imaging;
 using UltimateNiconicoCommentViewer.src.common;
@@ -12,9 +9,7 @@ using UltimateNiconicoCommentViewer.src.common.util;
 using UltimateNiconicoCommentViewer.src.model.connectLogic;
 using UltimateNiconicoCommentViewer.src.model.getCommentLogic.impl;
 using UltimateNiconicoCommentViewer.src.model.urlCreate;
-using UltimateNiconicoCommentViewer.src.model.Http.video;
 using static UltimateNiconicoCommentViewer.src.model.Http.video.HttpUserVideoInfo;
-using NUnit.Framework.Constraints;
 
 namespace UltimateNiconicoCommentViewerTest
 {
@@ -23,7 +18,7 @@ namespace UltimateNiconicoCommentViewerTest
         private ConnectNicoNico logic = new ConnectNicoNico(UrlCreate.GetInstance(),
                                                                      LoginLogic.GetInstance(),
                                                                      new ConnectionLogic());
-       
+
         private ConnectionLogic connection = new ConnectionLogic();
 
 
@@ -36,7 +31,7 @@ namespace UltimateNiconicoCommentViewerTest
 
 
 
-  
+
         [Test]
         public async Task ログインチェック_失敗()
         {
@@ -44,14 +39,14 @@ namespace UltimateNiconicoCommentViewerTest
             Assert.AreEqual(false, result);
         }
 
-        [TestCase(24,"addr")]
-        [TestCase(4,"port")]
-        [TestCase(10,"thread")]
+        [TestCase(24, "addr")]
+        [TestCase(4, "port")]
+        [TestCase(10, "thread")]
         public async Task 放送ステータスの取得_成功(int expected, string key)
         {
             var response = await logic.SetLiveStatus("lv328021115");
-            
-            var result = XmlParse.parseXml(response,key);
+
+            var result = XmlParse.parseXml(response, key);
 
             TestContext.WriteLine(result);
 
@@ -71,11 +66,11 @@ namespace UltimateNiconicoCommentViewerTest
         [Test]
         public async Task ユーザーアイコン取得()
         {
-            
+
             var premium = new Uri(ApiURL.USER_ICON_URL(161843));
             var response = new Uri(ApiURL.USER_ICON_URL(97491199));
             HttpClient client = new HttpClient();
-            var res  = await client.GetAsync(response);
+            var res = await client.GetAsync(response);
             TestContext.WriteLine(res.IsSuccessStatusCode);
             BitmapImage preSource = new BitmapImage(premium);
             BitmapImage imageSource = new BitmapImage(response);
@@ -98,12 +93,12 @@ namespace UltimateNiconicoCommentViewerTest
         [TestCase("12443139")]
         public async Task 投稿動画のタイトル取得(string userId)
         {
-        
-                var info =  await new HttpUserVideoInfoBuilder().Build(userId, new HttpClient());
-                var res = info.GetVideoTitle();
-                TestContext.WriteLine(res);
-                Assert.IsTrue(res.NotEmpty());
-            
+
+            var info = await new HttpUserVideoInfoBuilder().Build(userId, new HttpClient());
+            var res = info.GetVideoTitle();
+            TestContext.WriteLine(res);
+            Assert.IsTrue(res.NotEmpty());
+
         }
 
         [TestCase("97491199")]

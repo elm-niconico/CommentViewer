@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.Security.Policy;
-using System.Text;
 using System.Windows;
-using UltimateNiconicoCommentViewer.src.common;
 
 namespace UltimateNiconicoCommentViewer.src.viewModel
 {

@@ -129,7 +129,3 @@ C:\Users\merut\Desktop\MyApp\C#\UltimateNiconicoCommentViewer\UltimateNiconicoCo
 C:\Users\merut\Desktop\MyApp\C#\UltimateNiconicoCommentViewer\UltimateNiconicoCommentViewerTest\obj\Debug\netcoreapp3.1\UltimateNiconicoCommentViewerTest.dll
 C:\Users\merut\Desktop\MyApp\C#\UltimateNiconicoCommentViewer\UltimateNiconicoCommentViewerTest\obj\Debug\netcoreapp3.1\UltimateNiconicoCommentViewerTest.pdb
 C:\Users\merut\Desktop\MyApp\C#\UltimateNiconicoCommentViewer\UltimateNiconicoCommentViewerTest\obj\Debug\netcoreapp3.1\UltimateNiconicoCommentViewerTest.genruntimeconfig.cache
-C:\Users\elm\Desktop\MyApp\C#\UltimateNiconicoCommentViewer\UltimateNiconicoCommentViewerTest\obj\Debug\netcoreapp3.1\UltimateNiconicoCommentViewerTest.csprojAssemblyReference.cache
-C:\Users\elm\Desktop\MyApp\C#\UltimateNiconicoCommentViewer\UltimateNiconicoCommentViewerTest\obj\Debug\netcoreapp3.1\UltimateNiconicoCommentViewerTest.AssemblyInfoInputs.cache
-C:\Users\elm\Desktop\MyApp\C#\UltimateNiconicoCommentViewer\UltimateNiconicoCommentViewerTest\obj\Debug\netcoreapp3.1\UltimateNiconicoCommentViewerTest.AssemblyInfo.cs
-C:\Users\elm\Desktop\MyApp\C#\UltimateNiconicoCommentViewer\UltimateNiconicoCommentViewerTest\obj\Debug\netcoreapp3.1\UltimateNiconicoCommentViewerTest.csproj.CoreCompileInputs.cache

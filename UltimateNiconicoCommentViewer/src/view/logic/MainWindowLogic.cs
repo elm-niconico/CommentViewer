@@ -1,19 +1,13 @@
 ﻿using MaterialDesignThemes.Wpf;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.Net;
-using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using UltimateNiconicoCommentViewer.src.common;
-using UltimateNiconicoCommentViewer.src.common.stringList;
 using UltimateNiconicoCommentViewer.src.common.util;
-using UltimateNiconicoCommentViewer.src.model.httpClient;
 using UltimateNiconicoCommentViewer.src.view.dialog;
 using UltimateNiconicoCommentViewer.src.view.logic;
 using static UltimateNiconicoCommentViewer.src.viewModel.dialog.UserProfileModel;
@@ -25,15 +19,16 @@ namespace UltimateNiconicoCommentViewer.src.viewModel
         INSTANCE,
 
     }
-    public static class Extends { 
+    public static class Extends
+    {
 
         private static bool autoScrollFlag = true;
 
         private static UserProfile _userProfileWindow;
 
-  
 
-       public static void NavigateSelectCookieWindow(this MainWindowLogic me)
+
+        public static void NavigateSelectCookieWindow(this MainWindowLogic me)
         {
             var cookieWindow = new SelectCookieWindow(SelectCookieWindowLogic.INSTANCE);
             cookieWindow.ShowDialog();
@@ -45,7 +40,7 @@ namespace UltimateNiconicoCommentViewer.src.viewModel
         /// <param name="selectItem"> 選択ユーザーの アイコン画像,ユーザー名,コメント本文,ユーザーID</param>
         /// <param name="window">　親Window　</param>
         /// <returns></returns>
-        public static async Task ShowUserProfile(this MainWindowLogic me,Object[] selectItem, Window window)
+        public static async Task ShowUserProfile(this MainWindowLogic me, Object[] selectItem, Window window)
         {
             if (selectItem.NotNull())
             {
@@ -74,7 +69,8 @@ namespace UltimateNiconicoCommentViewer.src.viewModel
                 try
                 {
                     Process.Start(liveIdUrl);
-                }catch(Win32Exception)
+                }
+                catch (Win32Exception)
                 {
                     //TODO 例外処理
                 }
@@ -113,7 +109,7 @@ namespace UltimateNiconicoCommentViewer.src.viewModel
         public static void CommentListDrop(this MainWindowLogic me, TextBox liveIdText)
         {
             liveIdText.Text = URLParse.tryParseUrl(liveIdText.Text);
-           
+
         }
 
         public static void ScrollCommentView(this MainWindowLogic me, ListView commentList)

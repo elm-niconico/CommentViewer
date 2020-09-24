@@ -1,18 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Diagnostics;
-using System.IO;
-using System.Net;
-using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 using UltimateNiconicoCommentViewer.src.common;
 using UltimateNiconicoCommentViewer.src.common.stringList;
 using UltimateNiconicoCommentViewer.src.common.util;
 using UltimateNiconicoCommentViewer.src.model.connectLogic;
-using UltimateNiconicoCommentViewer.src.model.httpClient;
-using UltimateNiconicoCommentViewer.src.model.urlCreate;
 
 namespace UltimateNiconicoCommentViewer.src.model.getCommentLogic.impl
 {
@@ -20,30 +13,30 @@ namespace UltimateNiconicoCommentViewer.src.model.getCommentLogic.impl
 
     {
 
-        private  LoginLogic _loginLogic { get; set;}
+        private LoginLogic _loginLogic { get; set; }
 
-        private  ConnectionLogic _connectionLogic { get; set; }
+        private ConnectionLogic _connectionLogic { get; set; }
 
         public string responseMessage { get; private set; }
 
         public string responseComment { get; private set; }
 
 
-        
+
         public ConnectNicoNico(LoginLogic login, ConnectionLogic connection)
         {
             _loginLogic = login;
             _connectionLogic = connection;
         }
-        
+
 
         /// <summary>
         /// コンストラクタ
         /// </summary>
         static ConnectNicoNico()
         {
-            
-            
+
+
         }
 
         public async IAsyncEnumerable<string> ConnectLive()
@@ -51,14 +44,14 @@ namespace UltimateNiconicoCommentViewer.src.model.getCommentLogic.impl
             string addr = XmlParse.parseXml(responseMessage, XmlKeys.ADDR);
             string port = XmlParse.parseXml(responseMessage, XmlKeys.PORT);
             string thread = XmlParse.parseXml(responseMessage, XmlKeys.THREAD);
-            if(addr.NotEmpty() && port.NotEmpty() && thread.NotEmpty())
+            if (addr.NotEmpty() && port.NotEmpty() && thread.NotEmpty())
             {
                 await foreach (var response in _connectionLogic.ConnectLive(thread, addr, port))
                 {
                     yield return response;
                 }
             }
-           
+
 
         }
 
@@ -91,7 +84,7 @@ namespace UltimateNiconicoCommentViewer.src.model.getCommentLogic.impl
 
 
         public async Task<bool> getUserIcon(int userId)
-        { 
+        {
             return await _connectionLogic.GetUserIcon(userId);
         }
 
@@ -99,10 +92,10 @@ namespace UltimateNiconicoCommentViewer.src.model.getCommentLogic.impl
         public async Task<string> getUserName(int userId)
         {
             var response = await _connectionLogic.GetUserName(userId);
-            var xmlStr =  await response.Content.ReadAsStringAsync();
+            var xmlStr = await response.Content.ReadAsStringAsync();
             return XmlParse.parseXml(xmlStr, "nickname");
         }
-        
+
 
         Task<string> IConnectNicoNico.ConnectLive()
         {
@@ -110,5 +103,5 @@ namespace UltimateNiconicoCommentViewer.src.model.getCommentLogic.impl
         }
     }
 
-    
+
 }

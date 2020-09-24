@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace UltimateNiconicoCommentViewer.src.common
+﻿namespace UltimateNiconicoCommentViewer.src.common
 {
     /// <summary>
     /// 放送に接続する際にしようする値を格納します

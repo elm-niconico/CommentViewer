@@ -1,10 +1,6 @@
 ﻿using NUnit.Framework;
-using NUnit.Framework.Constraints;
 using System;
-using System.Collections.Generic;
 using System.Data.SQLite;
-using System.IO;
-using System.Security.Cryptography;
 using System.Text;
 using UltimateNiconicoCommentViewer.src.viewModel;
 
@@ -19,19 +15,19 @@ namespace UltimateNiconicoCommentViewerTest
 
         [Test]
         public void クッキーファイルの取得_成功()
-        { 
-            using(SQLiteConnection conn = new SQLiteConnection(@"Data Source=C:\Users\merut\AppData\Local\Google\Chrome\User Data\Default\Cookies"))
+        {
+            using (SQLiteConnection conn = new SQLiteConnection(@"Data Source=C:\Users\merut\AppData\Local\Google\Chrome\User Data\Default\Cookies"))
             {
                 try
                 {
 
                     conn.Open();
                     SQLiteCommand cmd = new SQLiteCommand("SELECT encrypted_value, value, name FROM cookies WHERE host_key='.nicovideo.jp' AND name='user_session';", conn);
-                  
+
                     using (SQLiteDataReader reader = cmd.ExecuteReader())
                     {
-                        
-             
+
+
 
                         while (reader.Read())
                         {
@@ -45,12 +41,13 @@ namespace UltimateNiconicoCommentViewerTest
                             TestContext.WriteLine(nv.ToString() + "11");
                             TestContext.WriteLine(Encoding.ASCII.GetString(userData));
                             TestContext.WriteLine(s);
-                          
+
                         }
-                        
+
                     }
-                       
-                    }catch(Exception e)
+
+                }
+                catch (Exception e)
                 {
                     TestContext.WriteLine(e.Message);
                 }

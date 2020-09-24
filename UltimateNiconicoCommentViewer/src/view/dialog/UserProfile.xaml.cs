@@ -1,16 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
+﻿using System.Windows;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using UltimateNiconicoCommentViewer.src.view.logic;
 using UltimateNiconicoCommentViewer.src.viewModel.dialog;
 
@@ -25,7 +14,7 @@ namespace UltimateNiconicoCommentViewer.src.view.dialog
 
         private static UserProfileLogic _logic;
 
-      
+
 
         public UserProfile(UserProfileModel model)
         {
@@ -67,7 +56,7 @@ namespace UltimateNiconicoCommentViewer.src.view.dialog
 
         private void GoToLatestViedeo_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            if(e.LeftButton == MouseButtonState.Pressed)
+            if (e.LeftButton == MouseButtonState.Pressed)
             {
                 _logic.GoToLatestViedeo_MouseDown(_model.videoURL);
             }

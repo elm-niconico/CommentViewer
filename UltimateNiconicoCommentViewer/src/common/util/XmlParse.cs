@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Reflection.PortableExecutable;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+﻿using System.Text.RegularExpressions;
 
 namespace UltimateNiconicoCommentViewer.src.common.util
 {
     public class XmlParse
     {
-        
+
         /// <summary>
         /// マイリストID
         /// マイリスト名を取得します
@@ -19,10 +13,10 @@ namespace UltimateNiconicoCommentViewer.src.common.util
         /// <returns></returns>
         public static string[] ParseMylistXml(string response)
         {
-            var id   = parseXml(response, "id");
+            var id = parseXml(response, "id");
             var name = parseXml(response, "name");
             return new string[] { id, name };
-            
+
         }
 
         /// <summary>
@@ -31,7 +25,7 @@ namespace UltimateNiconicoCommentViewer.src.common.util
         /// <param name="response"></param>
         /// <param name="lastKey"></param>
         /// <returns></returns>
-        public static string parseXml(string response,string key)
+        public static string parseXml(string response, string key)
         {
             return Regex.Match(response, @$"(?<={key}>)[^<]*(?=</{key})").ToString();
         }

@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Text;
+﻿using System.Net.Http;
 using System.Threading.Tasks;
-using System.Windows.Input;
 using System.Windows.Media.Imaging;
 using UltimateNiconicoCommentViewer.src.common;
 using UltimateNiconicoCommentViewer.src.common.stringList;
 using UltimateNiconicoCommentViewer.src.common.util;
-using UltimateNiconicoCommentViewer.src.model.connectLogic;
-using UltimateNiconicoCommentViewer.src.model.Http.video;
 using UltimateNiconicoCommentViewer.src.model.httpClient;
 using static UltimateNiconicoCommentViewer.src.model.connectLogic.HttpMylistInfo;
 using static UltimateNiconicoCommentViewer.src.model.Http.video.HttpUserVideoInfo;
@@ -91,7 +85,7 @@ namespace UltimateNiconicoCommentViewer.src.viewModel.dialog
                 var response = await client.GetAsync(ApiURL.GET_USER_MYLIST(userId));
                 string[] mylistInfo = XmlParse.ParseMylistXml(await response.Content.ReadAsStringAsync());
                 return mylistInfo;
-            } 
+            }
         }
 
         /// <summary>
@@ -106,7 +100,7 @@ namespace UltimateNiconicoCommentViewer.src.viewModel.dialog
                 videoSamune = httpUserVideo.GetVideoSamune();
                 videoTitle = httpUserVideo.GetVideoTitle();
                 videoURL = httpUserVideo.GetVideoURL();
-            }     
+            }
         }
 
         /// <summary>
@@ -116,16 +110,16 @@ namespace UltimateNiconicoCommentViewer.src.viewModel.dialog
         /// <returns></returns>
         private async Task SetMylistName_Samune_VideoTitle(string mylistName)
         {
-           
+
             if (mylistName.NotEmpty())
             {
-                using(HttpClient client = HttpClientBuilder.NewHttpClient())
+                using (HttpClient client = HttpClientBuilder.NewHttpClient())
                 {
                     this.mylistName = mylistName;
                     var httpMylist = await new HttpMylistInfoBuilder().Build(mylistId, client);
                     mylistSamune = httpMylist.GetMylistVideoSamune();
                     mylistVideoUrl = httpMylist.GetMylistVideoUri();
-                   
+
                 }
             }
             else
@@ -134,10 +128,10 @@ namespace UltimateNiconicoCommentViewer.src.viewModel.dialog
             }
         }
 
-       
+
 
 
 
     }
-  
+
 }

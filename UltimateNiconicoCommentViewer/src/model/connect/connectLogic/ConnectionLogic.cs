@@ -6,11 +6,8 @@ using System.IO;
 using System.Net.Http;
 using System.Net.Sockets;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
-using UltimateNiconicoCommentViewer.src.common;
 using UltimateNiconicoCommentViewer.src.common.stringList;
-using UltimateNiconicoCommentViewer.src.model.httpClient;
 
 namespace UltimateNiconicoCommentViewer.src.model.connectLogic
 {
@@ -18,11 +15,11 @@ namespace UltimateNiconicoCommentViewer.src.model.connectLogic
     public class ConnectionLogic
     {
 
-        private static  HttpClient _client;
+        private static HttpClient _client;
 
         private NetworkStream _stream;
 
-        public ConnectionLogic(HttpClient client) 
+        public ConnectionLogic(HttpClient client)
         {
             _client = client;
         }
@@ -38,7 +35,7 @@ namespace UltimateNiconicoCommentViewer.src.model.connectLogic
                 byte[] buffer = Encoding.UTF8.GetBytes(ApiURL.CONNECT_SEVER_URL(threadId, 0));
                 using (_stream = tcp.GetStream())
                 {
-                    _stream.Write(buffer, 0, buffer.Length);                
+                    _stream.Write(buffer, 0, buffer.Length);
                     while (_stream.CanRead)
                     {
                         using (var memory = new MemoryStream())
@@ -48,9 +45,9 @@ namespace UltimateNiconicoCommentViewer.src.model.connectLogic
                             do
                             {
                                 response = _stream.Read(readByte, 0, readByte.Length);
-                                
+
                                 memory.Write(readByte, 0, response);
-                                
+
                                 yield return Encoding.UTF8.GetString(memory.GetBuffer(), 0, (int)memory.Length);
 
                             } while (_stream.DataAvailable);
@@ -58,11 +55,11 @@ namespace UltimateNiconicoCommentViewer.src.model.connectLogic
                         }
                     }
                 }
-               
+
             }
         }
 
-      
+
 
 
         public async Task<HttpResponseMessage> GetUserName(int userId) => await _client.GetAsync(ApiURL.GET_USER_NAME(userId));
@@ -73,7 +70,7 @@ namespace UltimateNiconicoCommentViewer.src.model.connectLogic
             var response = await _client.GetAsync(ApiURL.USER_ICON_URL(userId));
             return response.IsSuccessStatusCode;
         }
-         
+
 
         /// <summary>
         /// 配信の状態を取得します

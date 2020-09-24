@@ -1,39 +1,17 @@
-﻿using MaterialDesignThemes.Wpf;
-using System;
-using System.Collections.Generic;
-using System.Data.SQLite;
-using System.Diagnostics;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Text;
+﻿using System;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Automation;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using UltimateNiconicoCommentViewer.src.common;
-using UltimateNiconicoCommentViewer.src.common.stringList;
-using UltimateNiconicoCommentViewer.src.common.util;
 using UltimateNiconicoCommentViewer.src.model.connectLogic;
 using UltimateNiconicoCommentViewer.src.model.getCommentLogic.impl;
 using UltimateNiconicoCommentViewer.src.model.httpClient;
-using UltimateNiconicoCommentViewer.src.model.urlCreate;
-using UltimateNiconicoCommentViewer.src.view.dialog;
 using UltimateNiconicoCommentViewer.src.viewModel;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace UltimateNiconicoCommentViewer
 {
-   
+
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
@@ -53,8 +31,8 @@ namespace UltimateNiconicoCommentViewer
                                                                          new ConnectionLogic(HttpClientBuilder.NewHttpClient())));
 
             InitializeComponent();
-            
-            
+
+
         }
 
         /// <summary>
@@ -103,7 +81,7 @@ namespace UltimateNiconicoCommentViewer
         private void CommentList_ScrollChanged(object sender, ScrollChangedEventArgs e)
         {
             _windowLogic.CommentList_ScrollChanged(e);
-          
+
         }
 
         /// <summary>
@@ -114,7 +92,7 @@ namespace UltimateNiconicoCommentViewer
         private void Comment_MouseMove(object sender, MouseEventArgs e)
         {
             _windowLogic.CommentDragAndDrop(sender, e, commentList);
-           
+
         }
 
 
@@ -126,11 +104,11 @@ namespace UltimateNiconicoCommentViewer
         /// <param name="e"></param>
         private async void Comment_Drop(object sender, DragEventArgs e)
         {
-            var selectItem =  (Object[])e.Data.GetData(typeof(Object[]));
+            var selectItem = (Object[])e.Data.GetData(typeof(Object[]));
 
-            await _windowLogic.ShowUserProfile(selectItem,this);
-         
-            
+            await _windowLogic.ShowUserProfile(selectItem, this);
+
+
         }
 
         /// <summary>
@@ -142,7 +120,7 @@ namespace UltimateNiconicoCommentViewer
         {
 
         }
-        
+
         /// <summary>
         /// 放送URLが入力された際のイベント
         /// </summary>
@@ -150,7 +128,7 @@ namespace UltimateNiconicoCommentViewer
         /// <param name="e"> </param>
         private void liveIdText_TextChanged(object sender, TextChangedEventArgs e)
         {
-            _windowLogic.LiveIdChanged(liveIdText,connectBtn);
+            _windowLogic.LiveIdChanged(liveIdText, connectBtn);
 
         }
 

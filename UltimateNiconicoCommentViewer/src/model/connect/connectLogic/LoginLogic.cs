@@ -1,23 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 using UltimateNiconicoCommentViewer.src.common;
 using UltimateNiconicoCommentViewer.src.common.stringList;
-using UltimateNiconicoCommentViewer.src.model.httpClient;
 
 namespace UltimateNiconicoCommentViewer.src.model.connectLogic
 {
     public class LoginLogic
     {
 
-        private static  HttpClient _client;
+        private static HttpClient _client;
 
         /// <summary>
         /// インスタンス生成禁止
         /// </summary>
-        public LoginLogic(HttpClient client) {
+        public LoginLogic(HttpClient client)
+        {
             _client = client;
         }
 

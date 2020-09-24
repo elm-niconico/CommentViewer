@@ -1,16 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.Net.Http;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Media.Imaging;
 using UltimateNiconicoCommentViewer.src.common;
 using UltimateNiconicoCommentViewer.src.common.stringList;
 using UltimateNiconicoCommentViewer.src.common.util;
-using UltimateNiconicoCommentViewer.src.model.Http;
 
 namespace UltimateNiconicoCommentViewer.src.model.connectLogic
 {
@@ -32,7 +26,7 @@ namespace UltimateNiconicoCommentViewer.src.model.connectLogic
         public string GetMylistVideoUri()
         {
             var url = JsonParse.ParseFromJson(_responseMessage, NicoString.MYLIST_ITEM_VIDEOID);
-  
+
             return url;
         }
 
@@ -47,17 +41,18 @@ namespace UltimateNiconicoCommentViewer.src.model.connectLogic
             BitmapImage bitMapImage = null;
             try
             {
-               bitMapImage =  new BitmapImage(new Uri(samuneUrl));
-            }catch(Exception)
+                bitMapImage = new BitmapImage(new Uri(samuneUrl));
+            }
+            catch (Exception)
             {
 
 
             }
             return bitMapImage;
-            
+
         }
 
-      
+
 
         /// <summary>
         /// Mylistの詳細情報をセットします
@@ -66,7 +61,7 @@ namespace UltimateNiconicoCommentViewer.src.model.connectLogic
         /// <returns></returns>
         private async Task<HttpMylistInfo> SetMylistDetail(string param)
         {
-            var response =  await _client.GetAsync(ApiURL.GET_DETAIL_MYLIST_DATA(param));
+            var response = await _client.GetAsync(ApiURL.GET_DETAIL_MYLIST_DATA(param));
             this._responseMessage = await response.Content.ReadAsStringAsync();
             return this;
         }

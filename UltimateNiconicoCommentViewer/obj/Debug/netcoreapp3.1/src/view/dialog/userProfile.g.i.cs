@@ -65,8 +65,7 @@ namespace UltimateNiconicoCommentViewer.src.view.dialog {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/UltimateNiconicoCommentViewer;V1.0.0.0;component/src/view/dialog/userprofile.xam" +
-                    "l", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/UltimateNiconicoCommentViewer;component/src/view/dialog/userprofile.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\..\src\view\dialog\userProfile.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

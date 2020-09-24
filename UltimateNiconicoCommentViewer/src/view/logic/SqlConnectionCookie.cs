@@ -4,10 +4,7 @@ using Org.BouncyCastle.Crypto.Engines;
 using Org.BouncyCastle.Crypto.Modes;
 using Org.BouncyCastle.Crypto.Parameters;
 using System;
-using System.Buffers.Text;
-using System.Collections.Generic;
 using System.Data.SQLite;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
@@ -18,7 +15,7 @@ using UltimateNiconicoCommentViewer.src.common.stringList;
 namespace UltimateNiconicoCommentViewer.src.viewModel
 {
     public class SqlConnectionCookie
-    {   
+    {
 
         /// <summary>
         /// クッキーファイルからニコニコにログインをしているか確認します。
@@ -54,13 +51,14 @@ namespace UltimateNiconicoCommentViewer.src.viewModel
                             UserSetting.Default.userCookiePath = filePath;
                             UserSetting.Default.cookieValue = cookieValue;
                             UserSetting.Default.Save();
-                          
+
                         }
                         return flag;
 
                     }
 
-                }catch(Exception ex)
+                }
+                catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                     return false;

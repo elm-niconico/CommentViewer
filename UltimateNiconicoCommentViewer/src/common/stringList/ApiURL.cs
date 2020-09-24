@@ -1,24 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace UltimateNiconicoCommentViewer.src.common.stringList
+﻿namespace UltimateNiconicoCommentViewer.src.common.stringList
 {
     public class ApiURL
     {
         /// <summary>
         /// ログインする際に使用するURL
         /// </summary>
-        public const string LOGIN_URL       = "https://account.nicovideo.jp/api/v1/login";
+        public const string LOGIN_URL = "https://account.nicovideo.jp/api/v1/login";
 
         /// <summary>
         /// 配信情報を取得するときに使用するURL
         /// </summary>
         public const string LIVE_STATUS_URL = "http://live.nicovideo.jp/api/getplayerstatus";
 
-        public static string USER_ICON_URL(int userId) => $@"http://usericon.nimg.jp/usericon/{userId/10000}/{userId}.jpg";
+        public static string USER_ICON_URL(int userId) => $@"http://usericon.nimg.jp/usericon/{userId / 10000}/{userId}.jpg";
 
-        public static  string CONNECT_SEVER_URL(string threadId, int logNum)
+        public static string CONNECT_SEVER_URL(string threadId, int logNum)
       => $"<thread thread=\"{threadId}\" res_from=\"{logNum}\" version=\"20061206\" scores=\"1\" />\0";
 
         /// <summary>

@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
@@ -23,18 +22,18 @@ namespace UltimateNiconicoCommentViewer.src.model.urlCreate
         /// <param name="baseUrl"> 基本となるURL </param>
         /// <param name="param"> 渡すパラメータ </param>
         /// <returns> クエリパラメータ </returns>
-         public async Task<string> createQueryParam(string baseUrl,  Dictionary<string,string> param)
+        public async Task<string> createQueryParam(string baseUrl, Dictionary<string, string> param)
         {
             return $"{baseUrl}?${await new FormUrlEncodedContent(param).ReadAsStringAsync()}";//URL修正
         }
 
 
-       public StringContent createPostBody(Dictionary<string,string> param)
+        public StringContent createPostBody(Dictionary<string, string> param)
         {
             var jsonParam = JsonConvert.SerializeObject(param);
-            return new StringContent(jsonParam, Encoding.UTF8,NicoString.CONTENT_TYPE);
+            return new StringContent(jsonParam, Encoding.UTF8, NicoString.CONTENT_TYPE);
         }
-            
-           
+
+
     }
 }

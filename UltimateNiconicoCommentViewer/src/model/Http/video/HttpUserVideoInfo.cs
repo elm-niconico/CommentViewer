@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Media.Imaging;
 using UltimateNiconicoCommentViewer.src.common;
 using UltimateNiconicoCommentViewer.src.common.stringList;
@@ -16,8 +13,8 @@ namespace UltimateNiconicoCommentViewer.src.model.Http.video
         private HttpClient _client;
 
         private string _responseMessage;
-        
-        private HttpUserVideoInfo(HttpClient client) 
+
+        private HttpUserVideoInfo(HttpClient client)
         {
             _client = client;
         }
@@ -30,9 +27,10 @@ namespace UltimateNiconicoCommentViewer.src.model.Http.video
             try
             {
                 bitmapImage = new BitmapImage(new Uri(url));
-            }catch(Exception)
+            }
+            catch (Exception)
             {
-               
+
             }
 
             return bitmapImage;
@@ -54,7 +52,7 @@ namespace UltimateNiconicoCommentViewer.src.model.Http.video
         /// <returns></returns>
         public string GetVideoTitle()
         {
-            var title =  GetValue(NicoString.USER_VIDEO_TITLE);
+            var title = GetValue(NicoString.USER_VIDEO_TITLE);
             return (title.NotEmpty()) ? title : NicoString.DOES_NOT_EXISTS_VIDEO;
         }
 
