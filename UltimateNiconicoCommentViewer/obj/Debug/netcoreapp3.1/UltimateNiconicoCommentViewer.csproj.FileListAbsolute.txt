@@ -66,11 +66,6 @@ C:\Users\elm\Desktop\MyApp\C#\UltimateNiconicoCommentViewer\UltimateNiconicoComm
 C:\Users\elm\Desktop\MyApp\C#\UltimateNiconicoCommentViewer\UltimateNiconicoCommentViewer\bin\Debug\netcoreapp3.1\UltimateNiconicoCommentViewer.dll
 C:\Users\elm\Desktop\MyApp\C#\UltimateNiconicoCommentViewer\UltimateNiconicoCommentViewer\bin\Debug\netcoreapp3.1\UltimateNiconicoCommentViewer.pdb
 C:\Users\elm\Desktop\MyApp\C#\UltimateNiconicoCommentViewer\UltimateNiconicoCommentViewer\bin\Debug\netcoreapp3.1\ControlzEx.dll
-C:\Users\elm\Desktop\MyApp\C#\UltimateNiconicoCommentViewer\UltimateNiconicoCommentViewer\bin\Debug\netcoreapp3.1\Xceed.Wpf.AvalonDock.Themes.Aero.dll
-C:\Users\elm\Desktop\MyApp\C#\UltimateNiconicoCommentViewer\UltimateNiconicoCommentViewer\bin\Debug\netcoreapp3.1\Xceed.Wpf.AvalonDock.Themes.Metro.dll
-C:\Users\elm\Desktop\MyApp\C#\UltimateNiconicoCommentViewer\UltimateNiconicoCommentViewer\bin\Debug\netcoreapp3.1\Xceed.Wpf.AvalonDock.Themes.VS2010.dll
-C:\Users\elm\Desktop\MyApp\C#\UltimateNiconicoCommentViewer\UltimateNiconicoCommentViewer\bin\Debug\netcoreapp3.1\Xceed.Wpf.AvalonDock.dll
-C:\Users\elm\Desktop\MyApp\C#\UltimateNiconicoCommentViewer\UltimateNiconicoCommentViewer\bin\Debug\netcoreapp3.1\Xceed.Wpf.Toolkit.dll
 C:\Users\elm\Desktop\MyApp\C#\UltimateNiconicoCommentViewer\UltimateNiconicoCommentViewer\bin\Debug\netcoreapp3.1\MahApps.Metro.dll
 C:\Users\elm\Desktop\MyApp\C#\UltimateNiconicoCommentViewer\UltimateNiconicoCommentViewer\bin\Debug\netcoreapp3.1\MaterialDesignColors.dll
 C:\Users\elm\Desktop\MyApp\C#\UltimateNiconicoCommentViewer\UltimateNiconicoCommentViewer\bin\Debug\netcoreapp3.1\MaterialDesignThemes.Wpf.dll
@@ -80,17 +75,6 @@ C:\Users\elm\Desktop\MyApp\C#\UltimateNiconicoCommentViewer\UltimateNiconicoComm
 C:\Users\elm\Desktop\MyApp\C#\UltimateNiconicoCommentViewer\UltimateNiconicoCommentViewer\bin\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll
 C:\Users\elm\Desktop\MyApp\C#\UltimateNiconicoCommentViewer\UltimateNiconicoCommentViewer\bin\Debug\netcoreapp3.1\System.Data.SQLite.dll
 C:\Users\elm\Desktop\MyApp\C#\UltimateNiconicoCommentViewer\UltimateNiconicoCommentViewer\bin\Debug\netcoreapp3.1\System.Text.Json.dll
-C:\Users\elm\Desktop\MyApp\C#\UltimateNiconicoCommentViewer\UltimateNiconicoCommentViewer\bin\Debug\netcoreapp3.1\cs-CZ\Xceed.Wpf.AvalonDock.resources.dll
-C:\Users\elm\Desktop\MyApp\C#\UltimateNiconicoCommentViewer\UltimateNiconicoCommentViewer\bin\Debug\netcoreapp3.1\de\Xceed.Wpf.AvalonDock.resources.dll
-C:\Users\elm\Desktop\MyApp\C#\UltimateNiconicoCommentViewer\UltimateNiconicoCommentViewer\bin\Debug\netcoreapp3.1\es\Xceed.Wpf.AvalonDock.resources.dll
-C:\Users\elm\Desktop\MyApp\C#\UltimateNiconicoCommentViewer\UltimateNiconicoCommentViewer\bin\Debug\netcoreapp3.1\fr\Xceed.Wpf.AvalonDock.resources.dll
-C:\Users\elm\Desktop\MyApp\C#\UltimateNiconicoCommentViewer\UltimateNiconicoCommentViewer\bin\Debug\netcoreapp3.1\hu\Xceed.Wpf.AvalonDock.resources.dll
-C:\Users\elm\Desktop\MyApp\C#\UltimateNiconicoCommentViewer\UltimateNiconicoCommentViewer\bin\Debug\netcoreapp3.1\it\Xceed.Wpf.AvalonDock.resources.dll
-C:\Users\elm\Desktop\MyApp\C#\UltimateNiconicoCommentViewer\UltimateNiconicoCommentViewer\bin\Debug\netcoreapp3.1\pt-BR\Xceed.Wpf.AvalonDock.resources.dll
-C:\Users\elm\Desktop\MyApp\C#\UltimateNiconicoCommentViewer\UltimateNiconicoCommentViewer\bin\Debug\netcoreapp3.1\ro\Xceed.Wpf.AvalonDock.resources.dll
-C:\Users\elm\Desktop\MyApp\C#\UltimateNiconicoCommentViewer\UltimateNiconicoCommentViewer\bin\Debug\netcoreapp3.1\ru\Xceed.Wpf.AvalonDock.resources.dll
-C:\Users\elm\Desktop\MyApp\C#\UltimateNiconicoCommentViewer\UltimateNiconicoCommentViewer\bin\Debug\netcoreapp3.1\sv\Xceed.Wpf.AvalonDock.resources.dll
-C:\Users\elm\Desktop\MyApp\C#\UltimateNiconicoCommentViewer\UltimateNiconicoCommentViewer\bin\Debug\netcoreapp3.1\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
 C:\Users\elm\Desktop\MyApp\C#\UltimateNiconicoCommentViewer\UltimateNiconicoCommentViewer\bin\Debug\netcoreapp3.1\runtimes\linux-x64\native\netstandard2.0\SQLite.Interop.dll
 C:\Users\elm\Desktop\MyApp\C#\UltimateNiconicoCommentViewer\UltimateNiconicoCommentViewer\bin\Debug\netcoreapp3.1\runtimes\linux-x64\native\netstandard2.1\SQLite.Interop.dll
 C:\Users\elm\Desktop\MyApp\C#\UltimateNiconicoCommentViewer\UltimateNiconicoCommentViewer\bin\Debug\netcoreapp3.1\runtimes\osx-x64\native\netstandard2.0\SQLite.Interop.dll
@@ -99,7 +83,6 @@ C:\Users\elm\Desktop\MyApp\C#\UltimateNiconicoCommentViewer\UltimateNiconicoComm
 C:\Users\elm\Desktop\MyApp\C#\UltimateNiconicoCommentViewer\UltimateNiconicoCommentViewer\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\netstandard2.1\SQLite.Interop.dll
 C:\Users\elm\Desktop\MyApp\C#\UltimateNiconicoCommentViewer\UltimateNiconicoCommentViewer\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\netstandard2.0\SQLite.Interop.dll
 C:\Users\elm\Desktop\MyApp\C#\UltimateNiconicoCommentViewer\UltimateNiconicoCommentViewer\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\netstandard2.1\SQLite.Interop.dll
-C:\Users\elm\Desktop\MyApp\C#\UltimateNiconicoCommentViewer\UltimateNiconicoCommentViewer\obj\Debug\netcoreapp3.1\UltimateNiconicoCommentViewer.csprojAssemblyReference.cache
 C:\Users\elm\Desktop\MyApp\C#\UltimateNiconicoCommentViewer\UltimateNiconicoCommentViewer\obj\Debug\netcoreapp3.1\src\view\dialog\userProfile.g.cs
 C:\Users\elm\Desktop\MyApp\C#\UltimateNiconicoCommentViewer\UltimateNiconicoCommentViewer\obj\Debug\netcoreapp3.1\src\view\view\MainWindow.g.cs
 C:\Users\elm\Desktop\MyApp\C#\UltimateNiconicoCommentViewer\UltimateNiconicoCommentViewer\obj\Debug\netcoreapp3.1\src\view\view\SelectCookieWindow.g.cs
@@ -120,3 +103,4 @@ C:\Users\elm\Desktop\MyApp\C#\UltimateNiconicoCommentViewer\UltimateNiconicoComm
 C:\Users\elm\Desktop\MyApp\C#\UltimateNiconicoCommentViewer\UltimateNiconicoCommentViewer\obj\Debug\netcoreapp3.1\UltimateNiconicoCommentViewer.dll
 C:\Users\elm\Desktop\MyApp\C#\UltimateNiconicoCommentViewer\UltimateNiconicoCommentViewer\obj\Debug\netcoreapp3.1\UltimateNiconicoCommentViewer.pdb
 C:\Users\elm\Desktop\MyApp\C#\UltimateNiconicoCommentViewer\UltimateNiconicoCommentViewer\obj\Debug\netcoreapp3.1\UltimateNiconicoCommentViewer.genruntimeconfig.cache
+C:\Users\elm\Desktop\MyApp\C#\UltimateNiconicoCommentViewer\UltimateNiconicoCommentViewer\obj\Debug\netcoreapp3.1\UltimateNiconicoCommentViewer.csprojAssemblyReference.cache

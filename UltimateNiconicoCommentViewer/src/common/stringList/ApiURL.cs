@@ -41,16 +41,21 @@ namespace UltimateNiconicoCommentViewer.src.common.stringList
         /// </summary>
         /// <param name="userId"></param>
         /// <returns></returns>
-        public static string GET_USER_MYLIST(string userId) => $@"http://api.ce.nicovideo.jp/nicoapi/v1/mylistgroup.get?detail=0&user_id=${userId}";
+        public static string GET_USER_MYLIST(string userId) => $@"http://api.ce.nicovideo.jp/nicoapi/v1/mylistgroup.get?detail=0&user_id={userId}";
 
-
+        /// <summary>
+        /// ユーザーの投稿動画を取得します
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        public static string GET_USER_VIDEO(string userId) => $@"http://www.nicovideo.jp/user/{userId}/video?page=1&rss=2.0";
         /// <summary>
         /// 対象のマイリストページに移動します
         /// </summary>
         /// <param name="userId"></param>
         /// <param name="mylistId"></param>
         /// <returns></returns>
-        public static string GO_TO_MYLIST_LINK(int userId, int mylistId) => $@"https://www.nicovideo.jp/user/{userId}/mylist/{mylistId}";
+        public static string GO_TO_MYLIST_LINK(string userId, string mylistId) => $@"https://www.nicovideo.jp/user/{userId}/mylist/{mylistId}";
 
 
         /// <summary>
@@ -58,7 +63,14 @@ namespace UltimateNiconicoCommentViewer.src.common.stringList
         /// </summary>
         /// <param name="mylistId"></param>
         /// <returns></returns>
-        public static string GET_DETAIL_MYLIST_DATA(string mylistId) => $@"http://www.nicovideo.jp/api/mylist/list?group_id={mylistId}";
+        public static string GET_DETAIL_MYLIST_DATA(string mylistId) => $"http://www.nicovideo.jp/api/mylist/list?group_id={mylistId}";
+
+        /// <summary>
+        /// smナンバーから対象の動画ページに遷移します
+        /// </summary>
+        /// <param name="smId"></param>
+        /// <returns></returns>
+        public static string GO_TO_VIDEO_PAGE(string smId) => $"https://www.nicovideo.jp/watch/{smId}";
     }
 
 }

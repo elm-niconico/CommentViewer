@@ -144,25 +144,102 @@
             BorderThickness="0.5"
             BorderBrush="#FFE8E8EE"
             >
+         
+
             <StackPanel
-                Orientation="Horizontal"
-                VerticalAlignment="Top"
-                HorizontalAlignment="Left"
+                Orientation="Vertical"
                 >
-                <Image
+                <StackPanel
+                    Orientation="Horizontal"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Left"
+                    Margin="10,0,0,0"
+                    >
+                    <Image
                     Source="/Resources/mylistIcon.png"
                     Width="20"    
                     ></Image>
-                <!-- マイリストタイトル -->
-                <TextBlock
+                    <!-- マイリストタイトル -->
+                    <TextBlock
                     FontSize="14"
                     FontWeight="Bold"
                     Text="{Binding mylistName}"
+                    IsEnabled="{Binding isNamaId}"
+                    MouseDown="GoToMylist_MouseDown"
                     Margin="8"
+                    Cursor="Hand"
                     />
+                </StackPanel>
+
+                <StackPanel
+                    Orientation="Horizontal"
+                    >
+                    <!-- サムネイル -->
+                    <Image
+                        Source="{Binding mylistSamune}"
+                        Width="100"
+                        Height="100"
+                        MouseDown="GoToVideoPage_MouseDown"
+                        Cursor="Hand"
+                        />
+                
+                </StackPanel>
+
             </StackPanel>
 
         </Border>
 
+        <Border
+            Grid.Column="0"
+            Grid.Row="2"
+            Grid.ColumnSpan="2"
+            Margin="30,10"
+            BorderThickness="0.5"
+            BorderBrush="#FFE8E8EE"
+            >
+
+
+            <StackPanel
+                Orientation="Vertical"
+                >
+                <StackPanel
+                    Margin="10,0,0,0"
+                    Orientation="Horizontal"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Left"
+                    >
+                    <Image
+                    Source="/Resources/videoIcon.png"
+                    Width="20"    
+                    ></Image>
+                    <!-- マイリストタイトル -->
+                    <TextBlock
+                    FontSize="14"
+                    FontWeight="Bold"
+                    Text="{Binding videoTitle}"
+                    IsEnabled="{Binding isNamaId}"
+                    MouseDown="GoToVideoPage_MouseDown"
+                    Margin="8"
+                    Cursor="Hand"
+                    />
+                </StackPanel>
+
+                <StackPanel
+                    Orientation="Horizontal"
+                    >
+                    <!-- サムネイル -->
+                    <Image
+                        Source="{Binding videoSamune}"
+                        Width="100"
+                        Height="100"
+                        Cursor="Hand"
+                        MouseDown="GoToLatestViedeo_MouseDown"
+                        />
+                  
+                </StackPanel>
+
+            </StackPanel>
+
+        </Border>
     </Grid>
 </Window>

@@ -25,8 +25,6 @@ namespace UltimateNiconicoCommentViewer.src.view.dialog
 
         private static UserProfileLogic _logic;
 
-        private static UserProfile _instance;
-
       
 
         public UserProfile(UserProfileModel model)
@@ -46,6 +44,33 @@ namespace UltimateNiconicoCommentViewer.src.view.dialog
         private void UserProfileBtn_Click(object sender, RoutedEventArgs e)
         {
             _logic.GoToUserProfile(_model.userId);
+        }
+
+        /// <summary>
+        /// Event 【マイリストのタイトル】
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void GoToMylist_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            _logic.GoToMylist(_model.userId, _model.mylistId);
+        }
+
+
+        private void GoToVideoPage_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                _logic.GoToVideo_MouseDown(_model.mylistVideoUrl);
+            }
+        }
+
+        private void GoToLatestViedeo_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if(e.LeftButton == MouseButtonState.Pressed)
+            {
+                _logic.GoToLatestViedeo_MouseDown(_model.videoURL);
+            }
         }
     }
 }

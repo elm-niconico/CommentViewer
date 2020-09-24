@@ -12,6 +12,9 @@ using UltimateNiconicoCommentViewer.src.common.util;
 using UltimateNiconicoCommentViewer.src.model.connectLogic;
 using UltimateNiconicoCommentViewer.src.model.getCommentLogic.impl;
 using UltimateNiconicoCommentViewer.src.model.urlCreate;
+using UltimateNiconicoCommentViewer.src.model.Http.video;
+using static UltimateNiconicoCommentViewer.src.model.Http.video.HttpUserVideoInfo;
+using NUnit.Framework.Constraints;
 
 namespace UltimateNiconicoCommentViewerTest
 {
@@ -19,21 +22,19 @@ namespace UltimateNiconicoCommentViewerTest
     {
         private ConnectNicoNico logic = new ConnectNicoNico(UrlCreate.GetInstance(),
                                                                      LoginLogic.GetInstance(),
-                                                                     ConnectionLogic.GetInstance());
-
-        private ConnectionLogic connection = ConnectionLogic.getInstance();
+                                                                     new ConnectionLogic());
        
+        private ConnectionLogic connection = new ConnectionLogic();
+
+
+
         [SetUp]
         public void Setup()
         {
+
         }
 
-        [Test]
-        public async Task ログインチェック_成功()
-        {
-            bool result = await logic.LoginNiconicoAccount("elmgameinfo@gmail.com", "enjoygame1");          
-            Assert.AreEqual(true, result);
-        }
+
 
   
         [Test]
@@ -93,6 +94,55 @@ namespace UltimateNiconicoCommentViewerTest
 
             TestContext.WriteLine(result);
         }
+
+        [TestCase("12443139")]
+        public async Task 投稿動画のタイトル取得(string userId)
+        {
+        
+                var info =  await new HttpUserVideoInfoBuilder().Build(userId, new HttpClient());
+                var res = info.GetVideoTitle();
+                TestContext.WriteLine(res);
+                Assert.IsTrue(res.NotEmpty());
+            
+        }
+
+        [TestCase("97491199")]
+        public async Task 投稿動画のタイトル取得_失敗(string userId)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                var info = await new HttpUserVideoInfoBuilder().Build(userId, new HttpClient());
+                var res = info.GetVideoTitle();
+                TestContext.WriteLine(res);
+                Assert.IsTrue(res.IsEmpty());
+            }
+        }
+
+
+        [TestCase("12443139")]
+        public async Task 投稿動画のURL取得(string userId)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                var info = await new HttpUserVideoInfoBuilder().Build(userId, client);
+                var res = info.GetVideoURL();
+                TestContext.WriteLine(res);
+                Assert.IsTrue(res.NotEmpty());
+            }
+        }
+
+        [TestCase("12443139")]
+        public async Task 投稿動画のサムネイル画像取得(string userId)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                var info = await new HttpUserVideoInfoBuilder().Build(userId, client);
+                var res = info.GetVideoSamune();
+                TestContext.WriteLine(res);
+                Assert.IsTrue(res != null);
+            }
+        }
+
 
 
 

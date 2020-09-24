@@ -8,24 +8,23 @@
 
   <ItemGroup>
     <Compile Remove="Resource\**" />
+    <Compile Remove="src\view\logic\新しいフォルダー\**" />
     <EmbeddedResource Remove="Resource\**" />
+    <EmbeddedResource Remove="src\view\logic\新しいフォルダー\**" />
     <None Remove="Resource\**" />
+    <None Remove="src\view\logic\新しいフォルダー\**" />
     <Page Remove="Resource\**" />
+    <Page Remove="src\view\logic\新しいフォルダー\**" />
   </ItemGroup>
 
   <ItemGroup>
     <None Remove="Resources\mylistIcon.png" />
     <None Remove="Resources\user_default_icon.bmp" />
     <None Remove="Resources\user_default_icon.jpg" />
+    <None Remove="Resources\videoIcon.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="src\model\connectLive\" />
-    <Folder Include="src\view\logic\新しいフォルダー\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Extended.Wpf.Toolkit" Version="4.0.1" />
     <PackageReference Include="MaterialDesignColors" Version="1.2.6" />
     <PackageReference Include="MaterialDesignThemes" Version="3.1.3" />
     <PackageReference Include="MaterialDesignThemes.MahApps" Version="0.1.4" />
@@ -39,6 +38,7 @@
   <ItemGroup>
     <Resource Include="Resources\mylistIcon.png" />
     <Resource Include="Resources\user_default_icon.jpg" />
+    <Resource Include="Resources\videoIcon.png" />
   </ItemGroup>
 
   <ItemGroup>

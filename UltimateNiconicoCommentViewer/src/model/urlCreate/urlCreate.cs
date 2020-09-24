@@ -16,9 +16,6 @@ namespace UltimateNiconicoCommentViewer.src.model.urlCreate
 
         private UrlCreate() { }
 
-        private readonly static UrlCreate _singleTon;
-
-        public static UrlCreate GetInstance() => _singleTon;
 
         /// <summary>
         /// クエリパラメータを生成します

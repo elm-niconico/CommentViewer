@@ -23,7 +23,11 @@ namespace UltimateNiconicoCommentViewer.src.common
         /// </summary>
         public const string USER_AGENT = "User-Agent";
 
-        
+        public const string USER_VIDEO_TITLE = "title";
+
+        public const string USER_VIDEO_LINK = "link";
+
+
 
         /// <summary>
         /// 自分への連絡先(SNSとかないので仮でA)
@@ -54,6 +58,16 @@ namespace UltimateNiconicoCommentViewer.src.common
         public const string LOGIN_FLAG_KEY = "x-niconico-authflag";
 
         /// <summary>
+        /// マイリストの中の動画サムネURLを取得する際に使用します
+        /// </summary>
+        public const string MYLIST_ITEM_SAMUNE = "thumbnail_url";
+
+        /// <summary>
+        /// ユーザーの詳細プロフィールのサムネ画像から動画ページに遷移するためのURL(sm:****)
+        /// </summary>
+        public const string MYLIST_ITEM_VIDEOID = "video_id";
+
+        /// <summary>
         /// コメントサーバから接続が終了した際のメッセージです
         /// </summary>
         public const string FINISH_CONNECT_SERVER = "接続が終了しました";
@@ -62,6 +76,8 @@ namespace UltimateNiconicoCommentViewer.src.common
         public const string DOESNOT_EXISTS_MYLIST = "マイリストが存在しません";
 
         public const string CAN_NOT_FOUNT_MYLIST = "マイリストを取得できません";
+
+        public const string DOES_NOT_EXISTS_VIDEO = "投稿動画が存在しません";
     }
 
 
