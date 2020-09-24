@@ -125,7 +125,7 @@ namespace UltimateNiconicoCommentViewer {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/UltimateNiconicoCommentViewer;component/src/view/view/mainwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/UltimateNiconicoCommentViewer;V1.0.0.0;component/src/view/view/mainwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\..\src\view\view\MainWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
