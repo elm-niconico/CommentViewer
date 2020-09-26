@@ -161,14 +161,16 @@
                     ></Image>
                     <!-- マイリストタイトル -->
                     <TextBlock
-                    FontSize="14"
-                    FontWeight="Bold"
-                    Text="{Binding mylistName}"
-                    IsEnabled="{Binding isNamaId}"
-                    MouseDown="GoToMylist_MouseDown"
-                    Margin="8"
-                    Cursor="Hand"
-                    />
+                        FontSize="12"
+                        TextWrapping="Wrap"
+                        FontWeight="Bold"
+                        Text="{Binding mylistName}"
+                        IsEnabled="{Binding isNamaId}"
+                        MouseDown="GoToMylist_MouseDown"
+                        Margin="8"
+                        Cursor="Hand"
+                        Width="280"
+                        />
                 </StackPanel>
 
                 <StackPanel
@@ -212,15 +214,17 @@
                     Source="/Resources/videoIcon.png"
                     Width="20"    
                     ></Image>
-                    <!-- マイリストタイトル -->
+                    <!-- 投稿動画URL -->
                     <TextBlock
-                    FontSize="14"
-                    FontWeight="Bold"
-                    Text="{Binding videoTitle}"
-                    IsEnabled="{Binding isNamaId}"
-                    MouseDown="GoToVideoPage_MouseDown"
-                    Margin="8"
-                    Cursor="Hand"
+                        TextWrapping="Wrap"
+                        FontSize="12"
+                        FontWeight="Bold"
+                        Text="{Binding videoTitle}"
+                        IsEnabled="{Binding isNamaId}"
+                        MouseDown="GoToLatestViedeo_MouseDown"
+                        Margin="5"
+                        Cursor="Hand"
+                        Width="280"
                     />
                 </StackPanel>
 

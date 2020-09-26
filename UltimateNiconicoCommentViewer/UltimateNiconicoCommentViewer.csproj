@@ -4,17 +4,15 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
+    <AssemblyName>SuperNiconicoCommentViewer</AssemblyName>
+    <RootNamespace>SuperNiconicoCommentViewer</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
     <Compile Remove="Resource\**" />
-    <Compile Remove="src\component\logic\新しいフォルダー\**" />
     <EmbeddedResource Remove="Resource\**" />
-    <EmbeddedResource Remove="src\component\logic\新しいフォルダー\**" />
     <None Remove="Resource\**" />
-    <None Remove="src\component\logic\新しいフォルダー\**" />
     <Page Remove="Resource\**" />
-    <Page Remove="src\component\logic\新しいフォルダー\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -26,6 +24,7 @@
     <None Remove="Resources\user_default_icon.bmp" />
     <None Remove="Resources\user_default_icon.jpg" />
     <None Remove="Resources\videoIcon.png" />
+    <None Remove="userInfo.db" />
   </ItemGroup>
 
   <ItemGroup>
@@ -47,6 +46,7 @@
     <Resource Include="Resources\userProfileMark.png" />
     <Resource Include="Resources\user_default_icon.jpg" />
     <Resource Include="Resources\videoIcon.png" />
+    <Resource Include="userInfo.db" />
   </ItemGroup>
 
   <ItemGroup>

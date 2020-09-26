@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\elm\Desktop\MyApp\C#\UltimateNiconicoCommentViewer\UltimateNiconicoCommentViewer\obj\Debug\netcoreapp3.1\
+C:\Users\elm\Desktop\MyApp\C#\CommentViewer\UltimateNiconicoCommentViewer\obj\Debug\netcoreapp3.1\
 UltimateNiconicoCommentViewer
 none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1
-C:\Users\elm\Desktop\MyApp\C#\UltimateNiconicoCommentViewer\UltimateNiconicoCommentViewer\App.xaml
+C:\Users\elm\Desktop\MyApp\C#\CommentViewer\UltimateNiconicoCommentViewer\App.xaml
 3906137641
 
 37-1833692439
 202-1137534243
 src\component\view\dialog\SelectCookieWindow.xaml;src\component\view\MainWindow.xaml;src\component\view\userProfile.xaml;
 
-True
+False
 

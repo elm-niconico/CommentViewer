@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\elm\\Desktop\\MyApp\\C#\\UltimateNiconicoCommentViewer\\UltimateNiconicoCommentViewerTest\\UltimateNiconicoCommentViewerTest.csproj": {}
+    "C:\\Users\\elm\\Desktop\\MyApp\\C#\\CommentViewer\\UltimateNiconicoCommentViewerTest\\UltimateNiconicoCommentViewerTest.csproj": {}
   },
   "projects": {
-    "C:\\Users\\elm\\Desktop\\MyApp\\C#\\UltimateNiconicoCommentViewer\\UltimateNiconicoCommentViewerTest\\UltimateNiconicoCommentViewerTest.csproj": {
+    "C:\\Users\\elm\\Desktop\\MyApp\\C#\\CommentViewer\\UltimateNiconicoCommentViewerTest\\UltimateNiconicoCommentViewerTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\elm\\Desktop\\MyApp\\C#\\UltimateNiconicoCommentViewer\\UltimateNiconicoCommentViewerTest\\UltimateNiconicoCommentViewerTest.csproj",
+        "projectUniqueName": "C:\\Users\\elm\\Desktop\\MyApp\\C#\\CommentViewer\\UltimateNiconicoCommentViewerTest\\UltimateNiconicoCommentViewerTest.csproj",
         "projectName": "UltimateNiconicoCommentViewerTest",
-        "projectPath": "C:\\Users\\elm\\Desktop\\MyApp\\C#\\UltimateNiconicoCommentViewer\\UltimateNiconicoCommentViewerTest\\UltimateNiconicoCommentViewerTest.csproj",
+        "projectPath": "C:\\Users\\elm\\Desktop\\MyApp\\C#\\CommentViewer\\UltimateNiconicoCommentViewerTest\\UltimateNiconicoCommentViewerTest.csproj",
         "packagesPath": "C:\\Users\\elm\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\elm\\Desktop\\MyApp\\C#\\UltimateNiconicoCommentViewer\\UltimateNiconicoCommentViewerTest\\obj\\",
+        "outputPath": "C:\\Users\\elm\\Desktop\\MyApp\\C#\\CommentViewer\\UltimateNiconicoCommentViewerTest\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\elm\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -27,8 +27,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\elm\\Desktop\\MyApp\\C#\\UltimateNiconicoCommentViewer\\UltimateNiconicoCommentViewer\\UltimateNiconicoCommentViewer.csproj": {
-                "projectPath": "C:\\Users\\elm\\Desktop\\MyApp\\C#\\UltimateNiconicoCommentViewer\\UltimateNiconicoCommentViewer\\UltimateNiconicoCommentViewer.csproj"
+              "C:\\Users\\elm\\Desktop\\MyApp\\C#\\CommentViewer\\UltimateNiconicoCommentViewer\\UltimateNiconicoCommentViewer.csproj": {
+                "projectPath": "C:\\Users\\elm\\Desktop\\MyApp\\C#\\CommentViewer\\UltimateNiconicoCommentViewer\\UltimateNiconicoCommentViewer.csproj"
               }
             }
           }
@@ -81,14 +81,14 @@
         }
       }
     },
-    "C:\\Users\\elm\\Desktop\\MyApp\\C#\\UltimateNiconicoCommentViewer\\UltimateNiconicoCommentViewer\\UltimateNiconicoCommentViewer.csproj": {
+    "C:\\Users\\elm\\Desktop\\MyApp\\C#\\CommentViewer\\UltimateNiconicoCommentViewer\\UltimateNiconicoCommentViewer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\elm\\Desktop\\MyApp\\C#\\UltimateNiconicoCommentViewer\\UltimateNiconicoCommentViewer\\UltimateNiconicoCommentViewer.csproj",
-        "projectName": "UltimateNiconicoCommentViewer",
-        "projectPath": "C:\\Users\\elm\\Desktop\\MyApp\\C#\\UltimateNiconicoCommentViewer\\UltimateNiconicoCommentViewer\\UltimateNiconicoCommentViewer.csproj",
+        "projectUniqueName": "C:\\Users\\elm\\Desktop\\MyApp\\C#\\CommentViewer\\UltimateNiconicoCommentViewer\\UltimateNiconicoCommentViewer.csproj",
+        "projectName": "SuperNiconicoCommentViewer",
+        "projectPath": "C:\\Users\\elm\\Desktop\\MyApp\\C#\\CommentViewer\\UltimateNiconicoCommentViewer\\UltimateNiconicoCommentViewer.csproj",
         "packagesPath": "C:\\Users\\elm\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\elm\\Desktop\\MyApp\\C#\\UltimateNiconicoCommentViewer\\UltimateNiconicoCommentViewer\\obj\\",
+        "outputPath": "C:\\Users\\elm\\Desktop\\MyApp\\C#\\CommentViewer\\UltimateNiconicoCommentViewer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\elm\\AppData\\Roaming\\NuGet\\NuGet.Config",

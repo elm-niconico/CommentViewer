@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace UltimateNiconicoCommentViewer {
+namespace SuperNiconicoCommentViewer {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SuperNiconicoCommentViewer;
+using System;
 using System.Net;
 using System.Net.Http;
 using UltimateNiconicoCommentViewer.src.common;

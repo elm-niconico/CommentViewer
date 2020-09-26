@@ -58,7 +58,9 @@ namespace UltimateNiconicoCommentViewer.src.view.dialog
         {
             if (e.LeftButton == MouseButtonState.Pressed)
             {
-                _logic.GoToLatestViedeo_MouseDown(_model.videoURL);
+                var videoUrl = _model.videoURL;
+
+                _logic.GoToLatestViedeo_MouseDown(videoUrl);
             }
         }
     }

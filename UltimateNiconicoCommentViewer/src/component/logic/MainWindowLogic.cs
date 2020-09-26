@@ -168,7 +168,7 @@ namespace UltimateNiconicoCommentViewer.src.viewModel
         {
             if (autoScrollFlag)
             {
-                commentList.ScrollIntoView(commentList.Items[commentList.Items.Count - 1]);
+                commentList.ScrollIntoView(commentList.Items[commentList.Items.Count-1]);
             }
         }
 
@@ -179,7 +179,7 @@ namespace UltimateNiconicoCommentViewer.src.viewModel
         /// <param name="e"></param>
         public void CommentList_ScrollChanged(ScrollChangedEventArgs e)
         {
-            autoScrollFlag = (e.VerticalOffset + e.ViewportHeight == e.ExtentHeight);
+            autoScrollFlag = (e.VerticalOffset + e.ViewportHeight >= e.ExtentHeight-2);
         }
 
 

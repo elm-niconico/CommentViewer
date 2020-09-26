@@ -1,4 +1,5 @@
 ﻿using Microsoft.Win32;
+using SuperNiconicoCommentViewer;
 using System;
 using System.Windows;
 using UltimateNiconicoCommentViewer.src.common;

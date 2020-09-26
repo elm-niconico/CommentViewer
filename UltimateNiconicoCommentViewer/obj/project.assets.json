@@ -2360,11 +2360,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\elm\\Desktop\\MyApp\\C#\\UltimateNiconicoCommentViewer\\UltimateNiconicoCommentViewer\\UltimateNiconicoCommentViewer.csproj",
-      "projectName": "UltimateNiconicoCommentViewer",
-      "projectPath": "C:\\Users\\elm\\Desktop\\MyApp\\C#\\UltimateNiconicoCommentViewer\\UltimateNiconicoCommentViewer\\UltimateNiconicoCommentViewer.csproj",
+      "projectUniqueName": "C:\\Users\\elm\\Desktop\\MyApp\\C#\\CommentViewer\\UltimateNiconicoCommentViewer\\UltimateNiconicoCommentViewer.csproj",
+      "projectName": "SuperNiconicoCommentViewer",
+      "projectPath": "C:\\Users\\elm\\Desktop\\MyApp\\C#\\CommentViewer\\UltimateNiconicoCommentViewer\\UltimateNiconicoCommentViewer.csproj",
       "packagesPath": "C:\\Users\\elm\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\elm\\Desktop\\MyApp\\C#\\UltimateNiconicoCommentViewer\\UltimateNiconicoCommentViewer\\obj\\",
+      "outputPath": "C:\\Users\\elm\\Desktop\\MyApp\\C#\\CommentViewer\\UltimateNiconicoCommentViewer\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\elm\\AppData\\Roaming\\NuGet\\NuGet.Config",

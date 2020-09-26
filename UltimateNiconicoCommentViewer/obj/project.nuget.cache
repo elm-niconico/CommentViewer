@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "z38dzLQLysZnTBNN1g+DWbOImwBCy3LtEH7YBPW8YZ/jyWoh6v8DVArEjeR16EzG5bReX445YN+QokBbBTrU/w==",
+  "dgSpecHash": "uUp0sazH/2pKZdSFc9ALkxzJ1TJNLTBj+4UCamtQaIkb0W+wIysxDirVIRLq1ooEFV/CrV0MjdxQoQhMftkwJQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\elm\\Desktop\\MyApp\\C#\\UltimateNiconicoCommentViewer\\UltimateNiconicoCommentViewer\\UltimateNiconicoCommentViewer.csproj",
+  "projectFilePath": "C:\\Users\\elm\\Desktop\\MyApp\\C#\\CommentViewer\\UltimateNiconicoCommentViewer\\UltimateNiconicoCommentViewer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\elm\\.nuget\\packages\\controlzex\\4.3.0\\controlzex.4.3.0.nupkg.sha512",
     "C:\\Users\\elm\\.nuget\\packages\\mahapps.metro\\2.0.0\\mahapps.metro.2.0.0.nupkg.sha512",

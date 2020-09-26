@@ -65,8 +65,8 @@ namespace UltimateNiconicoCommentViewer.src.view.dialog {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/UltimateNiconicoCommentViewer;component/src/component/view/dialog/selectcookiewi" +
-                    "ndow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/SuperNiconicoCommentViewer;component/src/component/view/dialog/selectcookiewindo" +
+                    "w.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\..\..\src\component\view\dialog\SelectCookieWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
