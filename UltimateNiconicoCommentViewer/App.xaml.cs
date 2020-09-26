@@ -7,6 +7,5 @@ namespace UltimateNiconicoCommentViewer
     /// </summary>
     public partial class App : Application
     {
-
     }
 }

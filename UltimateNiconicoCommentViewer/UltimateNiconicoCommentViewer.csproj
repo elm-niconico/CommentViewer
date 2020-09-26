@@ -8,17 +8,21 @@
 
   <ItemGroup>
     <Compile Remove="Resource\**" />
-    <Compile Remove="src\view\logic\新しいフォルダー\**" />
+    <Compile Remove="src\component\logic\新しいフォルダー\**" />
     <EmbeddedResource Remove="Resource\**" />
-    <EmbeddedResource Remove="src\view\logic\新しいフォルダー\**" />
+    <EmbeddedResource Remove="src\component\logic\新しいフォルダー\**" />
     <None Remove="Resource\**" />
-    <None Remove="src\view\logic\新しいフォルダー\**" />
+    <None Remove="src\component\logic\新しいフォルダー\**" />
     <Page Remove="Resource\**" />
-    <Page Remove="src\view\logic\新しいフォルダー\**" />
+    <Page Remove="src\component\logic\新しいフォルダー\**" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Resources\corp_round_v1.ttf" />
     <None Remove="Resources\mylistIcon.png" />
+    <None Remove="Resources\nicomoji-plus_1.11.ttf" />
+    <None Remove="Resources\urlLink.png" />
+    <None Remove="Resources\userProfileMark.png" />
     <None Remove="Resources\user_default_icon.bmp" />
     <None Remove="Resources\user_default_icon.jpg" />
     <None Remove="Resources\videoIcon.png" />
@@ -36,16 +40,20 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Resources\corp_round_v1.ttf" />
     <Resource Include="Resources\mylistIcon.png" />
+    <Resource Include="Resources\nicomoji-plus_1.11.ttf" />
+    <Resource Include="Resources\urlLink.png" />
+    <Resource Include="Resources\userProfileMark.png" />
     <Resource Include="Resources\user_default_icon.jpg" />
     <Resource Include="Resources\videoIcon.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Resource1.Designer.cs">
+    <Compile Update="Resource.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>Resource1.resx</DependentUpon>
+      <DependentUpon>Resource.resx</DependentUpon>
     </Compile>
     <Compile Update="UserSetting.Designer.cs">
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
@@ -55,9 +63,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Resource1.resx">
+    <EmbeddedResource Update="Resource.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
 

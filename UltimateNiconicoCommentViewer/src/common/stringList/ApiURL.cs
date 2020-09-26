@@ -10,7 +10,7 @@
         /// <summary>
         /// 配信情報を取得するときに使用するURL
         /// </summary>
-        public const string LIVE_STATUS_URL = "http://live.nicovideo.jp/api/getplayerstatus";
+        public static string LIVE_STATUS_URL(string liveId) => $@"http://live.nicovideo.jp/api/getplayerstatus/{liveId}";
 
         public static string USER_ICON_URL(int userId) => $@"http://usericon.nimg.jp/usericon/{userId / 10000}/{userId}.jpg";
 
@@ -67,6 +67,13 @@
         /// <param name="smId"></param>
         /// <returns></returns>
         public static string GO_TO_VIDEO_PAGE(string smId) => $"https://www.nicovideo.jp/watch/{smId}";
+
+        //TODO パスの格納先を考える URlParseで使用
+        public static string ABSOLUTE_VIDEO_PATH(string videoId)
+            => $@"https://www.nicovideo.jp/watch/{videoId}";
+
+        public static string ABSOLUTE_LIVE_PATH(string liveId)
+            => $@"https://live2.nicovideo.jp/watch/{liveId}";
     }
 
 }

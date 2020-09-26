@@ -14,5 +14,7 @@
             return !int.TryParse(str, out id);
         }
 
+        public static bool IsNull(this string str) => str == null;
+
     }
 }

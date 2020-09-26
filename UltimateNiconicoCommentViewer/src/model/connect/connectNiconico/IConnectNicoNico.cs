@@ -4,8 +4,6 @@ namespace UltimateNiconicoCommentViewer.src.model.getCommentLogic
 {
     interface IConnectNicoNico
     {
-
-
         /// <summary>
         /// 放送の情報を取得します
         /// </summary>

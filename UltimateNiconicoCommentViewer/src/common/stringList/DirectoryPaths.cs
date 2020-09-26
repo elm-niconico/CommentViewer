@@ -2,6 +2,6 @@
 {
     public class DirectoryPaths
     {
-        public const string InitDirectory = "";
+        public const string UserDefaultIconPath = "/Resources/user_default_icon.jpg";
     }
 }

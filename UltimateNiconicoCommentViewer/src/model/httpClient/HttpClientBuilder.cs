@@ -6,7 +6,7 @@ using UltimateNiconicoCommentViewer.src.viewModel;
 
 namespace UltimateNiconicoCommentViewer.src.model.httpClient
 {
-    class HttpClientBuilder
+    public class HttpClientBuilder
     {
 
         /// <summary>
@@ -27,9 +27,6 @@ namespace UltimateNiconicoCommentViewer.src.model.httpClient
             return client;
         }
 
-
-
-
         /// <summary>
         /// クライアントハンドラーを返します
         /// </summary>
@@ -47,7 +44,6 @@ namespace UltimateNiconicoCommentViewer.src.model.httpClient
             var con = new SqlConnectionCookie();
             if (con.ReadCookie(UserSetting.Default.userCookiePath))
             {
-
                 var uri = new Uri(NicoString.NICO_URL);
                 var cookie = new Cookie(NicoString.USER_SESSION, value, NicoString.SLASH, NicoString.NICO_NAME);
                 var handler = GetInitHandler();

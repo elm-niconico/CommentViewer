@@ -27,7 +27,6 @@ namespace UltimateNiconicoCommentViewer.src.model.urlCreate
             return $"{baseUrl}?${await new FormUrlEncodedContent(param).ReadAsStringAsync()}";//URL修正
         }
 
-
         public StringContent createPostBody(Dictionary<string, string> param)
         {
             var jsonParam = JsonConvert.SerializeObject(param);

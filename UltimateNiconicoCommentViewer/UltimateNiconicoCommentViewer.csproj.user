@@ -7,21 +7,21 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="src\view\view\SelectCookieWindow.xaml.cs">
+    <Compile Update="src\component\view\dialog\SelectCookieWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="src\view\dialog\UserProfile.xaml.cs">
+    <Compile Update="src\component\view\UserProfile.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="src\view\view\SelectCookieWindow.xaml">
+    <Page Update="src\component\view\dialog\SelectCookieWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="src\view\dialog\userProfile.xaml">
+    <Page Update="src\component\view\userProfile.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="src\view\view\MainWindow.xaml">
+    <Page Update="src\component\view\MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

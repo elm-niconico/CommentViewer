@@ -24,9 +24,6 @@ namespace UltimateNiconicoCommentViewer.src.model.connectLogic
             _client = client;
         }
 
-
-
-
         public async IAsyncEnumerable<string> ConnectLive(string threadId, string host, string port)
         {
             using (var tcp = new TcpClient())
@@ -77,7 +74,7 @@ namespace UltimateNiconicoCommentViewer.src.model.connectLogic
         /// </summary>
         /// <param name="liveId"> ライブのID (lv****) </param>
         /// <returns> XML形式で変換 </returns>
-        public async Task<HttpResponseMessage> GetLiveStatus(string liveId) => await _client.GetAsync($"{ApiURL.LIVE_STATUS_URL}/{liveId}");//TODO API修正
+        public async Task<HttpResponseMessage> GetLiveStatus(string liveId) => await _client.GetAsync(ApiURL.LIVE_STATUS_URL(liveId));
 
 
     }

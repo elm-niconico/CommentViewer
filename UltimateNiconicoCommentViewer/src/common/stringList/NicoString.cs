@@ -74,6 +74,8 @@
         public const string CAN_NOT_FOUNT_MYLIST = "マイリストを取得できません";
 
         public const string DOES_NOT_EXISTS_VIDEO = "投稿動画が存在しません";
+
+        
     }
 
 

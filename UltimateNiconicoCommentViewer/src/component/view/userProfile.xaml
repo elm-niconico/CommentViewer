@@ -1,0 +1,245 @@
+﻿<Window x:Class="UltimateNiconicoCommentViewer.src.view.dialog.UserProfile"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:UltimateNiconicoCommentViewer.src.view.dialog"
+        mc:Ignorable="d"
+        Title="ユーザープロフィール" 
+        Height="500"
+        Width="400"
+        ResizeMode="NoResize"
+        >
+
+    <Grid
+        Visibility="Visible"
+        >
+        <Grid.Style>
+            <Style/>
+        </Grid.Style>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="147*"/>
+            <RowDefinition Height="156*"/>
+            <RowDefinition Height="181*"/>
+
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="27*"/>
+            <ColumnDefinition Width="53*"/>
+
+        </Grid.ColumnDefinitions>
+        <StackPanel
+            Grid.Row="0"
+            Grid.Column="0"
+            >
+            <!-- ユーザーアイコン　-->
+            <Image
+                Source="{Binding userIcon}"
+                Grid.Column="0"
+                Grid.Row="0"
+                Height="100"
+                Width="100"           
+                />
+            <Button
+                Margin="0,10,0,0"
+                Width="90"
+                Height="20"
+                Foreground="#FF0FC8FF"
+                FontSize="8"
+                IsEnabled="{Binding isNamaId}"
+                Click="UserProfileBtn_Click"
+                >
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border
+                            BorderThickness="1"
+                            BorderBrush="#FF0FC8FF"
+                            Background="White"
+                            CornerRadius="10"
+                            >
+                            <ContentPresenter
+                                Content="プロフィールページへ"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </StackPanel>
+
+
+        <!-- === ユーザーID一覧 == -->
+        <Grid
+            Grid.Row="0"
+            Grid.Column="1"
+            Margin="0,0,0,20"
+            >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="37*"/>
+                <RowDefinition Height="34*"/>
+                <RowDefinition Height="29*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50*"/>
+                <ColumnDefinition Width="227*"/>
+            </Grid.ColumnDefinitions>
+            <!-- コテハン -->
+            <TextBlock
+                Margin="4,0,0,0"
+                Grid.ColumnSpan="2"
+                Grid.Column="0"
+                x:Name="kotehanText"
+                FontSize="15"
+                FontWeight="Bold"
+                HorizontalAlignment="Left" 
+                Text="TODO コテハン"
+                TextWrapping="Wrap"
+                VerticalAlignment="Center" />
+            <!-- ユーザーID -->
+            <StackPanel
+                Orientation="Horizontal"  
+                VerticalAlignment="Center"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Grid.Row="1"
+                >
+                <Label
+                Content="ID :" 
+                FontSize="10"
+                />
+
+                <TextBlock
+                    VerticalAlignment="Center"
+                    Text="{Binding userId}"
+                    FontSize="10"
+                    ></TextBlock>
+            </StackPanel>
+
+            <!-- ユーザー名 -->
+            <Label 
+                Content="NAME :" 
+                FontSize="10"
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Center" 
+                Grid.Row="2"
+                />
+            <TextBlock
+                VerticalAlignment="Center"
+                FontSize="10"
+                Text="{Binding userName}"
+                Grid.Column="1"
+                Grid.Row="2"
+                ></TextBlock>
+
+        </Grid>
+
+        <Border
+            Grid.Column="0"
+            Grid.Row="1"
+            Grid.ColumnSpan="2"
+            Margin="30,10"
+            BorderThickness="0.5"
+            BorderBrush="#FFE8E8EE"
+            >
+         
+
+            <StackPanel
+                Orientation="Vertical"
+                >
+                <StackPanel
+                    Orientation="Horizontal"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Left"
+                    Margin="10,0,0,0"
+                    >
+                    <Image
+                    Source="/Resources/mylistIcon.png"
+                    Width="20"    
+                    ></Image>
+                    <!-- マイリストタイトル -->
+                    <TextBlock
+                    FontSize="14"
+                    FontWeight="Bold"
+                    Text="{Binding mylistName}"
+                    IsEnabled="{Binding isNamaId}"
+                    MouseDown="GoToMylist_MouseDown"
+                    Margin="8"
+                    Cursor="Hand"
+                    />
+                </StackPanel>
+
+                <StackPanel
+                    Orientation="Horizontal"
+                    >
+                    <!-- サムネイル -->
+                    <Image
+                        Source="{Binding mylistSamune}"
+                        Width="100"
+                        Height="100"
+                        MouseDown="GoToVideoPage_MouseDown"
+                        Cursor="Hand"
+                        />
+                
+                </StackPanel>
+
+            </StackPanel>
+
+        </Border>
+
+        <Border
+            Grid.Column="0"
+            Grid.Row="2"
+            Grid.ColumnSpan="2"
+            Margin="30,10"
+            BorderThickness="0.5"
+            BorderBrush="#FFE8E8EE"
+            >
+
+
+            <StackPanel
+                Orientation="Vertical"
+                >
+                <StackPanel
+                    Margin="10,0,0,0"
+                    Orientation="Horizontal"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Left"
+                    >
+                    <Image
+                    Source="/Resources/videoIcon.png"
+                    Width="20"    
+                    ></Image>
+                    <!-- マイリストタイトル -->
+                    <TextBlock
+                    FontSize="14"
+                    FontWeight="Bold"
+                    Text="{Binding videoTitle}"
+                    IsEnabled="{Binding isNamaId}"
+                    MouseDown="GoToVideoPage_MouseDown"
+                    Margin="8"
+                    Cursor="Hand"
+                    />
+                </StackPanel>
+
+                <StackPanel
+                    Orientation="Horizontal"
+                    >
+                    <!-- サムネイル -->
+                    <Image
+                        Source="{Binding videoSamune}"
+                        Width="100"
+                        Height="100"
+                        Cursor="Hand"
+                        MouseDown="GoToLatestViedeo_MouseDown"
+                        />
+                  
+                </StackPanel>
+
+            </StackPanel>
+
+        </Border>
+    </Grid>
+</Window>

@@ -10,7 +10,6 @@ using UltimateNiconicoCommentViewer.src.model.connectLogic;
 namespace UltimateNiconicoCommentViewer.src.model.getCommentLogic.impl
 {
     public class ConnectNicoNico : IConnectNicoNico
-
     {
 
         private LoginLogic _loginLogic { get; set; }
@@ -21,22 +20,10 @@ namespace UltimateNiconicoCommentViewer.src.model.getCommentLogic.impl
 
         public string responseComment { get; private set; }
 
-
-
         public ConnectNicoNico(LoginLogic login, ConnectionLogic connection)
         {
             _loginLogic = login;
             _connectionLogic = connection;
-        }
-
-
-        /// <summary>
-        /// コンストラクタ
-        /// </summary>
-        static ConnectNicoNico()
-        {
-
-
         }
 
         public async IAsyncEnumerable<string> ConnectLive()
@@ -51,8 +38,6 @@ namespace UltimateNiconicoCommentViewer.src.model.getCommentLogic.impl
                     yield return response;
                 }
             }
-
-
         }
 
 
@@ -83,13 +68,13 @@ namespace UltimateNiconicoCommentViewer.src.model.getCommentLogic.impl
         }
 
 
-        public async Task<bool> getUserIcon(int userId)
+        public async Task<bool> ExstractUserIcon(int userId)
         {
             return await _connectionLogic.GetUserIcon(userId);
         }
 
 
-        public async Task<string> getUserName(int userId)
+        public async Task<string> ExstractUserName(int userId)
         {
             var response = await _connectionLogic.GetUserName(userId);
             var xmlStr = await response.Content.ReadAsStringAsync();

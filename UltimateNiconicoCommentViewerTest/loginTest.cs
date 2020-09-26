@@ -8,18 +8,17 @@ using UltimateNiconicoCommentViewer.src.common.stringList;
 using UltimateNiconicoCommentViewer.src.common.util;
 using UltimateNiconicoCommentViewer.src.model.connectLogic;
 using UltimateNiconicoCommentViewer.src.model.getCommentLogic.impl;
-using UltimateNiconicoCommentViewer.src.model.urlCreate;
+using UltimateNiconicoCommentViewer.src.model.httpClient;
 using static UltimateNiconicoCommentViewer.src.model.Http.video.HttpUserVideoInfo;
 
 namespace UltimateNiconicoCommentViewerTest
 {
     public class LoginTest
     {
-        private ConnectNicoNico logic = new ConnectNicoNico(UrlCreate.GetInstance(),
-                                                                     LoginLogic.GetInstance(),
-                                                                     new ConnectionLogic());
+        private ConnectNicoNico logic = new ConnectNicoNico(new LoginLogic(HttpClientBuilder.NewHttpClient()),
+                                                            new ConnectionLogic(HttpClientBuilder.NewHttpClient()));
 
-        private ConnectionLogic connection = new ConnectionLogic();
+        private ConnectionLogic connection = new ConnectionLogic(HttpClientBuilder.NewHttpClient());
 
 
 
@@ -58,7 +57,7 @@ namespace UltimateNiconicoCommentViewerTest
         [TestCase("https://live2.nicovideo.jp/watch/")]
         public void •ú‘—URL‚©‚ç•ú‘—ID‚É•ÏŠ·(string url)
         {
-            var res = URLParse.tryParseUrl(url);
+            var res = URLParse.ParseUrlOrDefault(url);
             TestContext.WriteLine(res);
         }
 
@@ -109,7 +108,7 @@ namespace UltimateNiconicoCommentViewerTest
                 var info = await new HttpUserVideoInfoBuilder().Build(userId, new HttpClient());
                 var res = info.GetVideoTitle();
                 TestContext.WriteLine(res);
-                Assert.IsTrue(res.IsEmpty());
+                Assert.IsTrue(res.Equals(NicoString.DOES_NOT_EXISTS_VIDEO));
             }
         }
 
