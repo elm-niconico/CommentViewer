@@ -24,7 +24,6 @@
     <None Remove="Resources\user_default_icon.bmp" />
     <None Remove="Resources\user_default_icon.jpg" />
     <None Remove="Resources\videoIcon.png" />
-    <None Remove="userInfo.db" />
   </ItemGroup>
 
   <ItemGroup>
@@ -36,6 +35,7 @@
     <PackageReference Include="System.ComponentModel.TypeConverter" Version="4.3.0" />
     <PackageReference Include="System.Data.SQLite.Core" Version="1.0.113.1" />
     <PackageReference Include="System.Drawing.Common" Version="4.7.0" />
+    <PackageReference Include="System.Linq.Async" Version="4.1.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -46,10 +46,14 @@
     <Resource Include="Resources\userProfileMark.png" />
     <Resource Include="Resources\user_default_icon.jpg" />
     <Resource Include="Resources\videoIcon.png" />
-    <Resource Include="userInfo.db" />
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Update="Resource.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -70,6 +74,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
     <None Update="UserSetting.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>UserSetting.Designer.cs</LastGenOutput>

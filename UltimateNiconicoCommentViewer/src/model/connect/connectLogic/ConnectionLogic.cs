@@ -1,6 +1,7 @@
 ﻿
 
 
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net.Http;
@@ -19,6 +20,9 @@ namespace UltimateNiconicoCommentViewer.src.model.connectLogic
 
         private NetworkStream _stream;
 
+        private TcpClient _tcp;
+
+
         public ConnectionLogic(HttpClient client)
         {
             _client = client;
@@ -26,11 +30,11 @@ namespace UltimateNiconicoCommentViewer.src.model.connectLogic
 
         public async IAsyncEnumerable<string> ConnectLive(string threadId, string host, string port)
         {
-            using (var tcp = new TcpClient())
+            using (_tcp = new TcpClient())
             {
-                await tcp.ConnectAsync(host, int.Parse(port));
+                await _tcp.ConnectAsync(host, int.Parse(port));
                 byte[] buffer = Encoding.UTF8.GetBytes(ApiURL.CONNECT_SEVER_URL(threadId, 0));
-                using (_stream = tcp.GetStream())
+                using (_stream = _tcp.GetStream())
                 {
                     _stream.Write(buffer, 0, buffer.Length);
                     while (_stream.CanRead)
@@ -41,8 +45,20 @@ namespace UltimateNiconicoCommentViewer.src.model.connectLogic
                             var response = 0;
                             do
                             {
-                                response = _stream.Read(readByte, 0, readByte.Length);
-
+                               
+                                try
+                                {
+                                    response = _stream.Read(readByte, 0, readByte.Length);
+                                }
+                                catch (Exception)
+                                {
+                                    break;
+                                }
+                                
+                                if(response == 0)
+                                {
+                                    break;
+                                }
                                 memory.Write(readByte, 0, response);
 
                                 yield return Encoding.UTF8.GetString(memory.GetBuffer(), 0, (int)memory.Length);
@@ -54,6 +70,17 @@ namespace UltimateNiconicoCommentViewer.src.model.connectLogic
                 }
 
             }
+        }
+
+        public void Dispose()
+        {
+            _tcp.Client.Disconnect(false);
+            
+            _tcp = null;
+            _stream.Close();
+            _stream.Dispose();
+            
+            
         }
 
 

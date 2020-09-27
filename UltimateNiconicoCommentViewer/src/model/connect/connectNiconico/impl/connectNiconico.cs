@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Threading.Tasks;
+
 using UltimateNiconicoCommentViewer.src.common;
 using UltimateNiconicoCommentViewer.src.common.stringList;
 using UltimateNiconicoCommentViewer.src.common.util;
@@ -33,8 +35,12 @@ namespace UltimateNiconicoCommentViewer.src.model.getCommentLogic.impl
             string thread = XmlParse.parseXml(responseMessage, XmlKeys.THREAD);
             if (addr.NotEmpty() && port.NotEmpty() && thread.NotEmpty())
             {
-                await foreach (var response in _connectionLogic.ConnectLive(thread, addr, port))
+                IAsyncEnumerable<string> stream =  _connectionLogic.ConnectLive(thread, addr, port);
+                var first = await stream.FirstAsync();
+              
+                await foreach (var response in stream.Skip(1))
                 {
+                   
                     yield return response;
                 }
             }
@@ -49,9 +55,8 @@ namespace UltimateNiconicoCommentViewer.src.model.getCommentLogic.impl
         {
             var response = await _connectionLogic.GetLiveStatus(liveId);
             this.responseMessage = await response.Content.ReadAsStringAsync();
-            Debug.WriteLine(response);
-            Debug.WriteLine(await response.Content.ReadAsStringAsync());
-            return this.responseMessage;
+            
+            return XmlParse.parseXml(responseMessage, XmlKeys.COMMUNITY_NUM); ;
         }
 
         /// <summary>
@@ -78,13 +83,18 @@ namespace UltimateNiconicoCommentViewer.src.model.getCommentLogic.impl
         {
             var response = await _connectionLogic.GetUserName(userId);
             var xmlStr = await response.Content.ReadAsStringAsync();
-            return XmlParse.parseXml(xmlStr, "nickname");
+            return XmlParse.parseXml(xmlStr, NicoString.USER_NICKNAME);
         }
 
 
         Task<string> IConnectNicoNico.ConnectLive()
         {
             throw new NotImplementedException();
+        }
+
+        public void Dispose()
+        {
+            _connectionLogic.Dispose();
         }
     }
 

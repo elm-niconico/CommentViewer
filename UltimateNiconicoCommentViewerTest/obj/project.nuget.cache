@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "c0bUpRhj0RKt8n3tILloHgC4OzXSQANIE9O2iQEs0ofDbMYWCw2EA3cqRTdxkVm948ba3ogHdg35xo+oridxiA==",
+  "dgSpecHash": "HXMO1CT4fRN/HLLfMLTl/PMq0BFStYcXS3fnlUsngv7SQ50ZqoZLadQMoPDtChAyGbbm2JjNyBvXnJSAF9518A==",
   "success": true,
   "projectFilePath": "C:\\Users\\elm\\Desktop\\MyApp\\C#\\CommentViewer\\UltimateNiconicoCommentViewerTest\\UltimateNiconicoCommentViewerTest.csproj",
   "expectedPackageFiles": [
@@ -45,6 +45,7 @@
     "C:\\Users\\elm\\.nuget\\packages\\system.io.filesystem\\4.3.0\\system.io.filesystem.4.3.0.nupkg.sha512",
     "C:\\Users\\elm\\.nuget\\packages\\system.io.filesystem.primitives\\4.3.0\\system.io.filesystem.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\elm\\.nuget\\packages\\system.linq\\4.3.0\\system.linq.4.3.0.nupkg.sha512",
+    "C:\\Users\\elm\\.nuget\\packages\\system.linq.async\\4.1.1\\system.linq.async.4.1.1.nupkg.sha512",
     "C:\\Users\\elm\\.nuget\\packages\\system.reflection\\4.3.0\\system.reflection.4.3.0.nupkg.sha512",
     "C:\\Users\\elm\\.nuget\\packages\\system.reflection.extensions\\4.3.0\\system.reflection.extensions.4.3.0.nupkg.sha512",
     "C:\\Users\\elm\\.nuget\\packages\\system.reflection.primitives\\4.3.0\\system.reflection.primitives.4.3.0.nupkg.sha512",

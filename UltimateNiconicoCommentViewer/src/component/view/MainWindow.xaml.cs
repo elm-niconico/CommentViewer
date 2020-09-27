@@ -1,4 +1,7 @@
-﻿using System;
+﻿using SuperNiconicoCommentViewer.src.component.logic;
+using SuperNiconicoCommentViewer.src.component.logic.sql;
+using SuperNiconicoCommentViewer.src.component.model;
+using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows;
@@ -20,19 +23,27 @@ namespace UltimateNiconicoCommentViewer
     {
 
         private MainWindowLogic _windowLogic;
-
+        private MainWindowModel _model;
         public MainWindow()
         {
+            var model = new MainWindowModel();
+            this.DataContext = model;
             _windowLogic = new MainWindowLogic(new ResponseNiconico(
                                                new ConnectNicoNico(
                                                new LoginLogic(
                                                    HttpClientBuilder.NewHttpClient()),
                                                new ConnectionLogic(
-                                                   HttpClientBuilder.NewHttpClient()))));
-
+                                                   HttpClientBuilder.NewHttpClient()))),
+                                                new SqlConnectionComment(),
+                                                new CommandCheck(),
+                                                model
+                                                );
+            _model = model;
+            
             InitializeComponent();
 
-
+          
+            
         }
 
         /// <summary>
@@ -41,12 +52,26 @@ namespace UltimateNiconicoCommentViewer
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private async void Connect_NicoNico_Click(object sender, RoutedEventArgs e)
+        private async void Click_ConnectionNiconico(object sender, RoutedEventArgs e)
         {
             commentList.Items.Clear();
 
             var liveId = liveIdText.Text;
+            _model.BtnBind = MainWindowModel.DISCONNECT_TEXT;
+            connectBtn.Click -= Click_ConnectionNiconico;
+            connectBtn.Click += Click_DisConnectNiconico;
             await _windowLogic.ConnectLiveServer(liveId, commentList, this);
+            
+
+        }
+
+
+        private void Click_DisConnectNiconico(object sender, RoutedEventArgs e)
+        {
+            _windowLogic.DisConnectNiconicoServer();
+            _model.BtnBind = MainWindowModel.CONNECT_TEXT;
+            connectBtn.Click -= Click_DisConnectNiconico;
+            connectBtn.Click += Click_ConnectionNiconico;
         }
 
 
@@ -113,7 +138,7 @@ namespace UltimateNiconicoCommentViewer
 
             if (connectBtn.IsEnabled)
             {
-                Connect_NicoNico_Click(null, null);
+                Click_ConnectionNiconico(null, null);
             }
         }
 
@@ -139,6 +164,20 @@ namespace UltimateNiconicoCommentViewer
         private void NavigateSelectCookieWindow_Click(object sender, RoutedEventArgs e)
         {
             _windowLogic.NavigateSelectCookieWindow();
+        }
+
+        /// <summary>
+        /// TODO データベース閉じる処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void mainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Task.Run(() =>
+            {
+                _windowLogic.DisposeDb();
+            });
+           
         }
     }
 }

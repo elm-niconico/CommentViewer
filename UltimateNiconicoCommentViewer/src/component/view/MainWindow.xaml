@@ -8,6 +8,7 @@
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Luna" xmlns:xcad="http://schemas.xceed.com/wpf/xaml/avalondock" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" x:Class="UltimateNiconicoCommentViewer.MainWindow"
         mc:Ignorable="d"
+        Closing="mainWindow_Closing"
         ResizeMode="CanResizeWithGrip"
         Title="CommentViewer" Height="800" Width="1000" 
         x:Name="mainWindow" FontFamily="Meiryo UI"
@@ -61,12 +62,12 @@
                     <Grid
                         AllowDrop="True"
                         Drop="Drop_CommentOnUserProfileMark"
-                        VerticalAlignment="Center"
+                       
                         >
                         <Grid.RowDefinitions>
                             <RowDefinition Height="33*"/>
                             <RowDefinition Height="34*"/>
-                            <RowDefinition Height="33*"/>
+                            <RowDefinition Height="60*"/>
 
                         </Grid.RowDefinitions>
                         <Image
@@ -77,14 +78,16 @@
                             />
                         <TextBlock
                             Margin="0,5,0,0"
-                            Text="URLに遷移" 
+                            TextWrapping="Wrap"
+                            Text="ユーザー詳細取得"
                             Foreground="Black"
-                            FontSize="17"
+                            FontSize="12"
+                            VerticalAlignment="Top"
                             FontWeight="Bold"
                             FontFamily="Yu Gothic UI Semibold"
-                            VerticalAlignment="Bottom"
                             HorizontalAlignment="Center"
-                            Grid.Row="2" 
+                            Grid.Row="2"
+                            Grid.RowSpan="2"
                             />
                     </Grid>
                 </Border>
@@ -118,7 +121,7 @@
                             Margin="0,5,0,0"
                             Text="URLに遷移" 
                             Foreground="Black"
-                            FontSize="17"
+                            FontSize="13"
                             FontWeight="Bold"
                             FontFamily="Yu Gothic UI Semibold"
                             VerticalAlignment="Bottom"
@@ -170,14 +173,14 @@
                     x:Name="connectBtn"
                     Style="{StaticResource MaterialDesignRaisedLightButton}"
                     ToolTip="Resource name: MaterialDesignRaisedLightButton"
-                    Content="接続開始" Foreground="#DDFDFDFD" 
+                    Content="{Binding BtnBind, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Foreground="#DDFDFDFD" 
                     BorderBrush="#FF6226CF" 
                     Background="#FF805FBD"
                     md:ShadowAssist.ShadowDepth="Depth2"
                     md:ShadowAssist.ShadowEdges="Bottom"
                     Grid.Column="1"
                     Margin="0,10,0,0"
-                    Cursor="Hand" Click="Connect_NicoNico_Click" 
+                    Cursor="Hand" Click="Click_ConnectionNiconico" 
                     IsEnabled="False"
                     />
             </Grid>
@@ -249,9 +252,50 @@
                 </ListView.ItemTemplate>
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn  Header="ユーザー名" Width="150" DisplayMemberBinding="{Binding [0]}"/>
+                        <GridViewColumn Header="ユーザー名" Width="150" DisplayMemberBinding="{Binding [0]}"/>
                         <GridViewColumn Header="コメント" DisplayMemberBinding="{Binding [1]}"/>
-                    </GridView>
+                        <GridViewColumn   Header="{Binding Bind, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}">
+                            <GridViewColumn.HeaderTemplate>
+                                <DataTemplate >
+                                <StackPanel Width="300">
+                                    
+                                    <StackPanel Orientation="Horizontal">
+                                        <Label Content="コミュニティ番号 : " VerticalAlignment="Center"/>
+                                        <TextBlock
+                                                VerticalAlignment="Center"
+                                               Text="{Binding Path=DataContext.Bind, 
+                                                RelativeSource={RelativeSource FindAncestor, 
+                                                AncestorType={x:Type Window}}, 
+                                                Mode=OneWay,
+                                                UpdateSourceTrigger=PropertyChanged
+                                                }"
+                                                FontWeight="Bold"
+                                               />
+                                    </StackPanel>
+                                    
+                                    <StackPanel Orientation="Horizontal">
+                                        <Label Content="コミュニティ名    : " VerticalAlignment="Center"/>
+                                        <TextBlock
+                                                VerticalAlignment="Center"
+                                               Text="{Binding Path=DataContext.Bind, 
+                                                RelativeSource={RelativeSource FindAncestor, 
+                                                AncestorType={x:Type Window}}, 
+                                                Mode=OneWay,
+                                                UpdateSourceTrigger=PropertyChanged
+                                                }"
+                                                FontWeight="Bold"
+                                               />
+                                    </StackPanel>
+                                   
+                                   
+                                                
+                                  
+                                </StackPanel>
+                                </DataTemplate>
+                            </GridViewColumn.HeaderTemplate>
+                        </GridViewColumn>
+
+                </GridView>
                 </ListView.View>
             </ListView>
 

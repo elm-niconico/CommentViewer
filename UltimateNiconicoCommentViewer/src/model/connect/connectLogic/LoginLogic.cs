@@ -29,7 +29,7 @@ namespace UltimateNiconicoCommentViewer.src.model.connectLogic
         {
             var response = await DoLogin(mailTel, password);
             int loginFlag = 0;
-            System.Diagnostics.Debug.WriteLine(response);
+            
 
             //TODO XMLPARSEを使う処理に変える予定
             foreach (var loginStatus in response.Headers.GetValues(NicoString.LOGIN_FLAG_KEY))

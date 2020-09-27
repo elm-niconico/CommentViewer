@@ -55,5 +55,17 @@ namespace SuperNiconicoCommentViewer {
                 this["cookieValue"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string userDbPath {
+            get {
+                return ((string)(this["userDbPath"]));
+            }
+            set {
+                this["userDbPath"] = value;
+            }
+        }
     }
 }

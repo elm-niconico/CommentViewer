@@ -27,18 +27,18 @@ namespace UltimateNiconicoCommentViewerTest
       
        
 
-        [TestCase("https://atcoder.jp/?lang=jadajouoaudojgnlhioahf")]
-        public async Task URL遷移_成功(string url)
-        {
-            await ProcessSupport.ForceMovingUrlPage(url);
+        //[TestCase("https://atcoder.jp/?lang=jadajouoaudojgnlhioahf")]
+        //public async Task URL遷移_成功(string url)
+        //{
+        //    await ProcessSupport.ForceMovingUrlPage(url);
           
-        }
+        //}
 
-        [TestCase("https://at.jp/")]
-        public async Task URL遷移_失敗(string url)
-        {
-            await ProcessSupport.ForceMovingUrlPage(url);
+        //[TestCase("https://at.jp/")]
+        //public async Task URL遷移_失敗(string url)
+        //{
+        //    await ProcessSupport.ForceMovingUrlPage(url);
 
-        }
+        //}
     }
 }

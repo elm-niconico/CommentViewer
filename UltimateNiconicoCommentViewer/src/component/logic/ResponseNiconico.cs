@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using UltimateNiconicoCommentViewer.src.common;
 using UltimateNiconicoCommentViewer.src.common.stringList;
@@ -25,10 +26,11 @@ namespace UltimateNiconicoCommentViewer.src.viewModel
 
         public async IAsyncEnumerable<object[]> GetResponseMessage(string liveId)
         {
-            await _connect.SetLiveStatus(liveId);
+            yield return new object[] { await _connect.SetLiveStatus(liveId) };
             await foreach (var response in _connect.ConnectLive())
             {
-                var comment = XmlParse.parseCommentXml(response, "chat");
+                
+                var comment = XmlParse.parseCommentXml(response, NicoString.USER_CHAT);
                 var userId = XmlParse.parseUserIdXml(response);
                 var userName = userId;
                 int id;
@@ -70,7 +72,10 @@ namespace UltimateNiconicoCommentViewer.src.viewModel
         }
 
 
-
+        public void Dispose()
+        {
+            _connect.Dispose();
+        }
 
 
 

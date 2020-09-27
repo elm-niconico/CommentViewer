@@ -1,8 +1,11 @@
 ﻿using MaterialDesignThemes.Wpf;
+using SuperNiconicoCommentViewer.src.component.logic;
+using SuperNiconicoCommentViewer.src.component.logic.sql;
+using SuperNiconicoCommentViewer.src.component.model;
 using System;
-using System.ComponentModel;
 using System.Diagnostics;
-using System.Security.RightsManagement;
+using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -25,10 +28,25 @@ namespace UltimateNiconicoCommentViewer.src.viewModel
 
         private ResponseNiconico _responseNiconico;
 
-        public MainWindowLogic(ResponseNiconico responseNiconico)
+        private SqlConnectionComment _sqlComment;
+
+        private CommandCheck _cmdCheck;
+
+        private MainWindowModel _model;
+
+        public MainWindowLogic(ResponseNiconico responseNiconico, SqlConnectionComment sql,CommandCheck check,MainWindowModel model)
         {
             this._responseNiconico = responseNiconico;
+            this._sqlComment = sql;
+            this._cmdCheck = check;
+            this._model = model;
+
         }
+
+
+        
+
+
 
         /// <summary>
         /// クッキーファイル選択ダイアログを表示します。
@@ -67,12 +85,17 @@ namespace UltimateNiconicoCommentViewer.src.viewModel
 
         }
 
-        public async Task ConnectLiveServer(string liveId, ListView commentList, Window mainWindow)
+        public async Task ConnectLiveServer(string liveId, ListView commentList, MainWindow mainWindow)
+
         {
+          
             await Task.Run(async () =>
             {
-
-                await foreach (var response in _responseNiconico.GetResponseMessage(liveId))
+                object[] first = await _responseNiconico.GetResponseMessage(liveId).FirstAsync();
+                string communityNum = first[0] as string;
+                _model.Bind = communityNum;
+                
+                await foreach (var response in _responseNiconico.GetResponseMessage(liveId).Skip(1))
                 {
                     mainWindow.Dispatcher.Invoke(() =>
                     {
@@ -82,8 +105,16 @@ namespace UltimateNiconicoCommentViewer.src.viewModel
                         var userName = response[1] as string;
                         //コメント
                         var comment = response[2] as string;
-
+                       
                         var hiddenUserId = response[3] as string;
+
+                        if (_cmdCheck.HasHandle(comment))
+                        {
+                            _sqlComment.EntryHandle(hiddenUserId,_cmdCheck.GetMatchValue(),communityNum);
+                        }
+
+                        userName = _sqlComment.FindHandleOrElse(hiddenUserId, userName, communityNum);
+                     
                         object[] items = { imageSource, userName, comment, hiddenUserId };
                         commentList.Items.Add(items);
 
@@ -94,6 +125,7 @@ namespace UltimateNiconicoCommentViewer.src.viewModel
 
         }
 
+     
         /// <summary>
         /// 放送URL欄にテキストが入力された時にURLの形式かチェックします。
         /// URLの形式なら接続開始ボタンを有効化します。
@@ -101,7 +133,7 @@ namespace UltimateNiconicoCommentViewer.src.viewModel
         /// <param name="me"></param>
         /// <param name="liveIdText"></param>
         /// <param name="connectBtn"></param>
-        public  void LiveIdChanged( TextBox liveIdText, Button connectBtn)
+        public void LiveIdChanged(TextBox liveIdText, Button connectBtn)
         {
             //放送URL or liveId
             var liveId = URLParse.ParseUrlOrDefault(liveIdText.Text);
@@ -121,7 +153,7 @@ namespace UltimateNiconicoCommentViewer.src.viewModel
         /// コメントがURLマークにドロップされた時にそのコメントが有効かチェックします
         /// 有効ならプロセスサポートによってURLの遷移を試行します。
         /// </summary>
-        public  async Task MovingUrlPage( string comment)
+        public async Task MovingUrlPage(string comment)
         {
             var url = URLParse.TryUrlparseFromComment(comment);
             if (url.NotNull())
@@ -154,7 +186,7 @@ namespace UltimateNiconicoCommentViewer.src.viewModel
         /// </summary>
         /// <param name="me"></param>
         /// <param name="liveIdText"></param>
-        public  void CommentListDrop(TextBox liveIdText)
+        public void CommentListDrop(TextBox liveIdText)
         {
             liveIdText.Text = URLParse.ParseUrlOrDefault(liveIdText.Text);
         }
@@ -168,7 +200,7 @@ namespace UltimateNiconicoCommentViewer.src.viewModel
         {
             if (autoScrollFlag)
             {
-                commentList.ScrollIntoView(commentList.Items[commentList.Items.Count-1]);
+                commentList.ScrollIntoView(commentList.Items[commentList.Items.Count - 1]);
             }
         }
 
@@ -179,7 +211,19 @@ namespace UltimateNiconicoCommentViewer.src.viewModel
         /// <param name="e"></param>
         public void CommentList_ScrollChanged(ScrollChangedEventArgs e)
         {
-            autoScrollFlag = (e.VerticalOffset + e.ViewportHeight >= e.ExtentHeight-2);
+            autoScrollFlag = (e.VerticalOffset + e.ViewportHeight >= e.ExtentHeight - 2);
+        }
+
+     
+
+        public void DisposeDb()
+        {
+            _sqlComment.Dispose();
+        }
+
+        public void DisConnectNiconicoServer()
+        {
+            _responseNiconico.Dispose();
         }
 
 

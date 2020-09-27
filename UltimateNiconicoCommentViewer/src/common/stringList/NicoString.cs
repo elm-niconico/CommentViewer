@@ -23,6 +23,10 @@
 
         public const string USER_VIDEO_LINK = "link";
 
+        public const string USER_CHAT = "chat";
+
+        public const string USER_NICKNAME = "nickname";
+
 
 
         /// <summary>
